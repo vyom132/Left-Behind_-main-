@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -9,16 +10,20 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField]
     float speed = 12f;
+    float fastspeed = 20f;
 
     [SerializeField]
     float gravity = -9.8f;
+    float jumpforce = 10f;
 
     CharacterController controller;
+   public Rigidbody rb;
     Transform player;
     GameObject camera;
     Transform cameraTransform;
     GameObject flashlight;
     Light lightsource;
+    bool onground;
 
     Vector3 moveVel;
     Vector3 turnVel;
@@ -49,13 +54,20 @@ public class PlayerManager : MonoBehaviour
     {
         if (active)
         {
+            
             // movement
             x = Input.GetAxis("Horizontal");
             z = Input.GetAxis("Vertical");
             Vector3 move = transform.right * x + transform.forward * z;
             controller.Move(move * speed * Time.deltaTime);
+            if (Input.GetKey(KeyCode.LeftShift)) {
+
+                controller.Move(move * fastspeed * Time.deltaTime);
+            }
+            
             moveVel.y += gravity * Time.deltaTime;
             controller.Move(moveVel * Time.deltaTime);
+            
             transform.Rotate(turnVel * Time.deltaTime);
 
             // mouse look
@@ -95,4 +107,12 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void ApplyRotation() { }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            onground = true;
+        }
+    }
 }
