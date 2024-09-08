@@ -2,33 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class meeleehit3 : MonoBehaviour
+public class lvl1attack : MonoBehaviour
 {
-
-    private bool targetHit;
     // Start is called before the first frame update
     void Start()
     {
-
-        targetHit = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "enemy")
+        if (other.gameObject.tag == "Player")
         {
 
-
-            Debug.Log("wall got it3rd");
+            
+            Debug.Log("player got hit");
+            
         }
 
 
     }
-
+    
 }

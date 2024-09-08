@@ -21,7 +21,7 @@ public class meeleeHit2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "wall")
+        if (other.gameObject.tag == "enemy")
         {
 
 
