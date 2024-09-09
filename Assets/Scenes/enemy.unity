@@ -5595,7 +5595,7 @@ GameObject:
   - component: {fileID: 5334037119387225653}
   - component: {fileID: 5334037119387225654}
   m_Layer: 0
-  m_Name: attacktrigger
+  m_Name: face
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5705,11 +5705,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832149484209043008}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.26069045, y: 0.03547178, z: 0.07918817}
-  m_Center: {x: 0.005941843, y: 0.00012634993, z: 0.006534}
+  m_Size: {x: 0.050953303, y: 0.020000149, z: 0.035959017}
+  m_Center: {x: 0.012487347, y: -0.00000009165176, z: -0.0030492563}
 --- !u!114 &5334037119387225654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5719,9 +5719,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 832149484209043008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0616998952bc44943be31af1963673dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 764229fd153a7894fb9739dd51970d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: {fileID: 5429906905262188689, guid: 216dcb6a055d6ba43bdce457876aa9a6, type: 3}
+  InstantiationTimer: 0
+  parent: {fileID: 832149484209043008}
 --- !u!23 &6317578924999074142
 MeshRenderer:
   m_ObjectHideFlags: 0
