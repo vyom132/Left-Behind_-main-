@@ -16,6 +16,6 @@ public class ItemPickup : MonoBehaviour
 
     public void Pickup() {
         Debug.Log("Picking up item " + item.itemName);
-        InventoryManager.instance.Add(item, 1);
+        InventoryManager.instance.Increase(item, 1);
     }
 }

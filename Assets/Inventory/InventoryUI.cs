@@ -17,16 +17,21 @@ public class InventoryUI : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Q)) {
             GetComponent<Canvas>().enabled = !GetComponent<Canvas>().enabled;
         }
     }
 
     void UpdateUI() {
         Debug.Log("Updating UI");
-        for(int i = 0; i < inventory.counts.Count; i++)
+        for (int i = 0; i < inventory.items.Count; i++)
         {
-            slots[i].ChangeItem(inventory.items[i], inventory.counts[i]);
+            if (inventory.counts[i] == 0) {
+                slots[i].RemoveItem();
+            } else
+            {
+                slots[i].ChangeItem(inventory.items[i], inventory.counts[i]);
+            }
         }
     }
 }
