@@ -12,6 +12,8 @@ public class InventoryManager : MonoBehaviour
     public List<Item> items = new List<Item>();
     public List<int> counts = new List<int>();
     public int currency = 0;
+    public bool inStore = false;
+    public Item selected;
 
     public bool Increase(Item item, int count) {
         if (items.Contains(item)) {

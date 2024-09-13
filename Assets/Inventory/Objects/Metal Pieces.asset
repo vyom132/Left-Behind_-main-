@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Metal Pieces
   description: Gives 100 currency when sold.
+  itemInfo: Click "sell" to get 100 currency.
   icon: {fileID: 21300000, guid: 2022d62dc1dc21b448e226b651c9028c, type: 3}
   value: 100

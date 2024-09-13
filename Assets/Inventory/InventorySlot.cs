@@ -6,12 +6,10 @@ using TMPro;
 
 public class InventorySlot : MonoBehaviour
 {
-    public Image icon;
     public TMP_Text countTMP;
-    public TMP_Text titleTMP;
-    public TMP_Text descriptionTMP;
+    public Image icon;
     public bool isEmpty = true;
-    Item item;
+    public Item item;
 
     public void ChangeItem(Item newItem, int newCount) {
         if (item == null) {
@@ -36,16 +34,19 @@ public class InventorySlot : MonoBehaviour
         }
     }
 
-    public void UseItem() {
+    public void SelectItem() {
         if (isEmpty) {
             Debug.Log("Slot is empty");
         } else
         {
-            titleTMP.text = item.itemName;
-            titleTMP.enabled = !titleTMP.enabled;
-            descriptionTMP.text = item.description;
-            descriptionTMP.enabled = !descriptionTMP.enabled;
-            // item.Use();
+            if (InventoryManager.instance.selected == item) {
+                Debug.Log("Deselecting " + item.itemName);
+                InventoryUI.instance.Deselect();
+            } else
+            {
+                Debug.Log("Selecting " + item.itemName);
+                InventoryUI.instance.Select(item);
+            }
         }
     }
 }

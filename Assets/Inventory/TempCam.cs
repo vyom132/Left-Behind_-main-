@@ -33,18 +33,16 @@ public class TempCam : MonoBehaviour
             playerBody.Rotate(Vector3.up * mouseX);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            if (inv) {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                inv = false;
-            } else
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                inv = true;
-            }
+        if (Input.GetKeyDown(KeyCode.E)) {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            inv = true;
+        }
 
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            inv = false;
         }
     }
 }
