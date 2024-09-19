@@ -8,7 +8,7 @@ public class Item : ScriptableObject
     public string itemInfo = "info";
     public Sprite icon;
 
-    public void Use() {
+    public virtual void Use() {
         Debug.Log("Using " + itemName);
     }
 }
