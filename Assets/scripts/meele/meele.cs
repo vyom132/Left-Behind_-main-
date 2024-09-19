@@ -33,7 +33,7 @@ public class meele : MonoBehaviour
             GameObject at1 = Instantiate(attack1, meelee1.transform.position, meelee1.transform.rotation);
             at1D= true;
             anim.SetBool("at1", true);
-            await Task.Delay(2000);
+            await Task.Delay(1500);
             
             Destroy(at1);
             at1D = false;
@@ -57,7 +57,7 @@ public class meele : MonoBehaviour
             GameObject at3 = Instantiate(attack3, meelee3.transform.position, meelee3.transform.rotation);
             at3D = true;
             anim.SetBool("at3", true);
-            await Task.Delay(1500);
+            await Task.Delay(500);
 
             Destroy(at3);
             at3D = false;

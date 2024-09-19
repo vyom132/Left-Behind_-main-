@@ -25,7 +25,7 @@ public class meeleehit3 : MonoBehaviour
         {
 
 
-            Debug.Log("wall got it3rd");
+            Debug.Log("enemny got it3rd");
         }
 
 
