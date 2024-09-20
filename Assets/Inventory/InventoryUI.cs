@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -7,88 +5,51 @@ public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI instance; void Awake() { instance = this; }
 
-    InventoryManager inventory;
-    InventorySlot[] inventorySlots;
-    InventorySlot[] chestSlots;
-    List<Item> chestItems;
-
     public Transform slotsPanel;
+    InventoryManager inventory;
+    InventorySlot[] slots;
 
     public TMP_Text titleTMP;
     public TMP_Text descriptionTMP;
     public TMP_Text infoTMP;
-
     public GameObject button;
-    public GameObject chestPanel;
 
     void Start()
     {
         GetComponent<Canvas>().enabled = false;
         inventory = InventoryManager.instance;
-        inventorySlots = slotsPanel.GetComponentsInChildren<InventorySlot>();
-        chestSlots = chestPanel.GetComponentsInChildren<InventorySlot>();
+        inventory.onInventoryChangeCallback += UpdateUI;
+
+        slots = slotsPanel.GetComponentsInChildren<InventorySlot>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) {
-            ToggleInventory(true, (inventory.chestID != 0));
+            GetComponent<Canvas>().enabled = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            ToggleInventory(false);
-        }
-    }
-
-    public void ToggleInventory(bool turnOn, bool chest = false) {
-        if (turnOn) {
-            UpdateUI();
-
-            GetComponent<Canvas>().enabled = true;
-            infoTMP.enabled = false;
-            button.SetActive(false);
-            chestPanel.SetActive(chest);
-
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            inventory.active = true;
-        } else
-        {
             GetComponent<Canvas>().enabled = false;
+            inventory.inStore = false;
+
             infoTMP.enabled = false;
             button.SetActive(false);
-            chestPanel.SetActive(false);
 
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            inventory.active = true;
             inventory.selected = null;
             Deselect();
         }
     }
 
-    public void UpdateUI() {
+    void UpdateUI() {
         Debug.Log("Updating UI");
         for (int i = 0; i < inventory.items.Count; i++)
         {
             if (inventory.counts[i] == 0) {
-                inventorySlots[i].RemoveItem();
+                slots[i].RemoveItem();
             } else
             {
-                inventorySlots[i].ChangeItem(inventory.items[i], inventory.counts[i]);
-            }
-        }
-
-        if (inventory.chestID != 0) {
-            chestItems = inventory.GetChestItems();
-            for (int i = 0; i < chestItems.Count; i++)
-            {
-                if (chestItems[i] == null) {
-                    chestSlots[i].RemoveItem();
-                } else
-                {
-                    chestSlots[i].ChangeItem(inventory.GetChestItems()[i], 1);
-                }
+                slots[i].ChangeItem(inventory.items[i], inventory.counts[i]);
             }
         }
     }
@@ -101,7 +62,7 @@ public class InventoryUI : MonoBehaviour
         descriptionTMP.text = item.description;
         descriptionTMP.enabled = true;
 
-        if (inventory.nearStore) {
+        if (inventory.inStore) {
             button.SetActive(true);
             infoTMP.enabled = true;
             infoTMP.text = item.itemInfo;
@@ -116,7 +77,7 @@ public class InventoryUI : MonoBehaviour
         descriptionTMP.text = "";
         descriptionTMP.enabled = false;
 
-        if (inventory.nearStore) {
+        if (inventory.inStore) {
             button.SetActive(false);
             infoTMP.enabled = false;
             infoTMP.text = "";
@@ -125,6 +86,5 @@ public class InventoryUI : MonoBehaviour
 
     public void Sell() {
         inventory.selected.Use();
-        inventory.Decrease(inventory.selected, 1);
     }
 }
