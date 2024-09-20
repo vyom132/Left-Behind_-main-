@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
     float jumpforce = 10f;
 
     CharacterController controller;
-   public Rigidbody rb;
+    public Rigidbody rb;
     Transform player;
     GameObject camera;
     Transform cameraTransform;
@@ -54,7 +54,6 @@ public class PlayerManager : MonoBehaviour
     {
         if (active)
         {
-            
             // movement
             x = Input.GetAxis("Horizontal");
             z = Input.GetAxis("Vertical");
@@ -69,6 +68,7 @@ public class PlayerManager : MonoBehaviour
             controller.Move(moveVel * Time.deltaTime);
             
             transform.Rotate(turnVel * Time.deltaTime);
+
 
             // mouse look
             mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
@@ -105,8 +105,6 @@ public class PlayerManager : MonoBehaviour
     {
         active = value;
     }
-
-    private void ApplyRotation() { }
 
     private void OnCollisionEnter(Collision collision)
     {

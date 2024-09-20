@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class ObjectInteractor : MonoBehaviour
+public class LevelOneAttack : MonoBehaviour
+   
 {
-    async void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("display ui");
+            Debug.Log("player got hit");
         }
-    }
+    } 
 }

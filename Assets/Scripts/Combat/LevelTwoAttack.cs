@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class ObjectInteractor : MonoBehaviour
+public class LevelTwoAttack : MonoBehaviour
 {
+    public Animator anim;
+    public float timeinterval;
+
     async void OnTriggerStay(Collider other)
     {
+        //timeinterval -= Time.deltaTime;
+        //timeinterval = 3;
+
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("display ui");
+            anim.SetBool("in_range", true);
         }
     }
 }
