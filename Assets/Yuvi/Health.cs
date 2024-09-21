@@ -14,7 +14,12 @@ public class Health : MonoBehaviour
 
     public Text botkaenergyhealthbar;
 
+    
+
     public Image PlayerHealth;
+
+    public float damage = 30;
+    public float healthnipenchurakojja = 30;
 
     float lerpSpeed = 5f;    
 
@@ -36,16 +41,27 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (health > 0) {
             health -= 10 * Time.deltaTime;
             botHealth -= 10;
         }
 
         if (Input.GetKeyDown(KeyCode.V) && healthPlayer > 0) {
-            healthPlayer -= 10;
+            if (healthPlayer <= damage) {
+                healthPlayer = 0;
+            }
+            if (healthPlayer > damage) {
+                healthPlayer -= damage;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.K) && healthPlayer < 100) {
-            healthPlayer += 10;
+
+        if (Input.GetKeyDown(KeyCode.K) && healthPlayer < 100 && (100 - healthPlayer) <= healthnipenchurakojja) {
+            healthPlayer = 100;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K) && healthPlayer < 100 && (100 - healthPlayer) > healthnipenchurakojja) {
+            healthPlayer += healthnipenchurakojja;
         }
 
         // healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, health/100, lerpSpeed);
