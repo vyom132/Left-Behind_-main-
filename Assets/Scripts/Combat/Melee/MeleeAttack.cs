@@ -11,6 +11,8 @@ public class MeleeAttack : MonoBehaviour
     public GameObject meelee2;
     public GameObject attack3;
     public GameObject meelee3;
+    public GameObject particle;
+    public GameObject sparkspawn;
     public Animator anim;
 
     private bool at1D;
@@ -29,7 +31,8 @@ public class MeleeAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0) & at1D == false & at3D == false & at2D == false)
         {
             GameObject at1 = Instantiate(attack1, meelee1.transform.position, meelee1.transform.rotation);
-            at1D= true;
+            
+            at1D = true;
             anim.SetBool("at1", true);
             await Task.Delay(1500);
             
