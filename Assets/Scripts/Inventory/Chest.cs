@@ -7,11 +7,14 @@ public class Chest : MonoBehaviour
     public int chestID;
     public Transform player;
 
-    void Update() {
-        if((player.transform.position - transform.position).magnitude <= 15) {
+    void OnTriggerEnter(Collider collider) {
+        if (collider.CompareTag("Player")) {
             InventoryManager.instance.chestID = chestID;
-        } else
-        {
+        }
+    }
+
+    void OnTriggerExit(Collider collider) {
+        if (collider.CompareTag("Player")) {
             InventoryManager.instance.chestID = 0;
         }
     }
