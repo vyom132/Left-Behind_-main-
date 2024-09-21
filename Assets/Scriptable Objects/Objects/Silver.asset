@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a4d1cc1a48637241b9716ebb8f06780, type: 3}
-  m_Name: Metal Pieces
+  m_Script: {fileID: 11500000, guid: 8c8fd6cef923e6947b8ff72eac11de63, type: 3}
+  m_Name: Silver
   m_EditorClassIdentifier: 
-  itemName: Metal Pieces
-  description: Gives 100 currency when sold.
-  itemInfo: Click "sell" to get 100 currency.
+  itemName: Silver
+  description: Used to trade for other materials
   icon: {fileID: 21300000, guid: 2022d62dc1dc21b448e226b651c9028c, type: 3}
-  value: 100
+  isTradable: 1
+  importItems: {fileID: 11400000, guid: 0ed0e18e816e6c748bbe98858c856f6e, type: 2}

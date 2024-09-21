@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a4d1cc1a48637241b9716ebb8f06780, type: 3}
-  m_Name: Rare Metal
+  m_Script: {fileID: 11500000, guid: 8c8fd6cef923e6947b8ff72eac11de63, type: 3}
+  m_Name: Chip
   m_EditorClassIdentifier: 
-  itemName: Rare Metal
-  description: Gives 200 currency when sold.
-  itemInfo: 
+  itemName: Chip
+  description: Used to upgrade pet
   icon: {fileID: 21300000, guid: 479085c0f0120f24a9dfce89cb4762a0, type: 3}
-  value: 200
+  isTradable: 0
+  importItems: {fileID: 0}

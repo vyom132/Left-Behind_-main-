@@ -6,14 +6,18 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance; void Awake() { instance = this; }
 
-    public List<Item> chestOne = new List<Item>();
-    public List<Item> chestTwo = new List<Item>();
-    public List<Item> chestThree = new List<Item>();
+    public List<Item> chestOneItems = new List<Item>();
+    public List<Item> chestTwoItems = new List<Item>();
+    public List<Item> chestThreeItems = new List<Item>();
+
+    public List<int> chestOneCounts = new List<int>();
+    public List<int> chestTwoCounts = new List<int>();
+    public List<int> chestThreeCounts = new List<int>();
 
     public List<Item> items = new List<Item>();
     public List<int> counts = new List<int>();
+
     public Item selected;
-    public int currency = 0;
     public bool nearStore = false;
     public int chestID = 0; // 0 if not in chest, otherwise ID of chest
     public bool active = false;
@@ -38,8 +42,6 @@ public class InventoryManager : MonoBehaviour
                 counts.Add(count);
             }
         }
-
-        InventoryUI.instance.UpdateUI();
     }
 
     public void Decrease(Item item, int count) {
@@ -60,37 +62,45 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log("Not possible to decrease by more than existing amount");
         }
-
-        InventoryUI.instance.UpdateUI();
-    }
-
-    public void UpdateCurrency(int value) {
-        if (value <= currency) {
-            currency += value;
-            Debug.Log("Changed currency by " + value);
-        } else
-        {
-            Debug.Log("Currency too low");
-        }
     }
 
     public void CollectItemFromChest(Item item) {
-        GetChestItems()[GetChestItems().IndexOf(item)] = null;
-        Increase(item, 1);
-        Debug.Log("Moved " + item.itemName + " from chest to inventory");
+        int index = GetChestItems().IndexOf(item);
+
+        Increase(item, GetChestCounts()[index]);
+        Debug.Log("Moved " + item.itemName + " (" + GetChestCounts()[index] + ") from chest to inventory");
+
+        GetChestItems()[index] = null;
+        GetChestCounts()[index] = 0;
+        InventoryUI.instance.UpdateUI();
     }
 
     public List<Item> GetChestItems() {
         switch (chestID)
         {
             case 1:
-                return chestOne;
+                return chestOneItems;
             case 2:
-                return chestTwo;
+                return chestTwoItems;
             case 3:
-                return chestThree;
+                return chestThreeItems;
             default:
                 Debug.Log("Can't access chest items");
+                return null;
+        }
+    }
+
+    public List<int> GetChestCounts() {
+        switch (chestID)
+        {
+            case 1:
+                return chestOneCounts;
+            case 2:
+                return chestTwoCounts;
+            case 3:
+                return chestThreeCounts;
+            default:
+                Debug.Log("Can't access chest counts");
                 return null;
         }
     }

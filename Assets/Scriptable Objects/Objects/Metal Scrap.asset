@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd7ef7ea4bb620e4da09cb3444af406b, type: 3}
-  m_Name: Daiamandooo
+  m_Script: {fileID: 11500000, guid: 8c8fd6cef923e6947b8ff72eac11de63, type: 3}
+  m_Name: Metal Scrap
   m_EditorClassIdentifier: 
-  itemName: Diamond
-  description: Rare material required to upgrade bot.
-  itemInfo: 
-  icon: {fileID: 0}
+  itemName: Metal Scrap
+  description: Used to upgrade weapon
+  icon: {fileID: 21300000, guid: ff2f4b34aa5291c40ade2c077a679a4b, type: 3}

@@ -11,15 +11,14 @@ public class InventoryUI : MonoBehaviour
     InventorySlot[] inventorySlots;
     InventorySlot[] chestSlots;
     List<Item> chestItems;
-
-    public Transform slotsPanel;
+    List<int> chestCounts;
 
     public TMP_Text titleTMP;
     public TMP_Text descriptionTMP;
-    public TMP_Text infoTMP;
 
-    public GameObject button;
+    public GameObject slotsPanel;
     public GameObject chestPanel;
+    public GameObject traderPanel;
 
     void Start()
     {
@@ -45,18 +44,17 @@ public class InventoryUI : MonoBehaviour
             UpdateUI();
 
             GetComponent<Canvas>().enabled = true;
-            infoTMP.enabled = false;
-            button.SetActive(false);
             chestPanel.SetActive(chest);
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             inventory.active = true;
+            inventory.selected = null;
+
+            Trader.instance.UpdateTraderUI();
         } else
         {
             GetComponent<Canvas>().enabled = false;
-            infoTMP.enabled = false;
-            button.SetActive(false);
             chestPanel.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
@@ -69,6 +67,7 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateUI() {
         Debug.Log("Updating UI");
+
         for (int i = 0; i < inventory.items.Count; i++)
         {
             if (inventory.counts[i] == 0) {
@@ -81,13 +80,15 @@ public class InventoryUI : MonoBehaviour
 
         if (inventory.chestID != 0) {
             chestItems = inventory.GetChestItems();
+            chestCounts = inventory.GetChestCounts();
+
             for (int i = 0; i < chestItems.Count; i++)
             {
                 if (chestItems[i] == null) {
                     chestSlots[i].RemoveItem();
                 } else
                 {
-                    chestSlots[i].ChangeItem(inventory.GetChestItems()[i], 1);
+                    chestSlots[i].ChangeItem(inventory.GetChestItems()[i], inventory.GetChestCounts()[i]);
                 }
             }
         }
@@ -101,11 +102,7 @@ public class InventoryUI : MonoBehaviour
         descriptionTMP.text = item.description;
         descriptionTMP.enabled = true;
 
-        if (inventory.nearStore) {
-            button.SetActive(true);
-            infoTMP.enabled = true;
-            infoTMP.text = item.itemInfo;
-        }
+        Trader.instance.UpdateTraderUI();
     }
 
     public void Deselect() {
@@ -115,16 +112,5 @@ public class InventoryUI : MonoBehaviour
         titleTMP.enabled = false;
         descriptionTMP.text = "";
         descriptionTMP.enabled = false;
-
-        if (inventory.nearStore) {
-            button.SetActive(false);
-            infoTMP.enabled = false;
-            infoTMP.text = "";
-        }
-    }
-
-    public void Sell() {
-        inventory.selected.Use();
-        inventory.Decrease(inventory.selected, 1);
     }
 }

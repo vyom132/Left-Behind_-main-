@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd7ef7ea4bb620e4da09cb3444af406b, type: 3}
-  m_Name: Gear
+  m_Script: {fileID: 11500000, guid: abbbc7541cba15548b97c788d0577dd0, type: 3}
+  m_Name: GoldTradeItems
   m_EditorClassIdentifier: 
-  itemName: Gear
-  description: Common material required to upgrade bot.
-  itemInfo: 
-  icon: {fileID: 0}
+  items:
+  - {fileID: 11400000, guid: e6137ca489ba62b40b96610ba07adc72, type: 2}
+  - {fileID: 11400000, guid: f8386b69b50abdf4381aa5e3d7ac9def, type: 2}
+  counts: 0100000005000000
