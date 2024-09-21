@@ -51,7 +51,7 @@ public class InventoryUI : MonoBehaviour
             inventory.active = true;
             inventory.selected = null;
 
-            Trader.instance.UpdateTraderUI();
+            TradingManager.instance.UpdateTraderUI();
         } else
         {
             GetComponent<Canvas>().enabled = false;
@@ -79,8 +79,8 @@ public class InventoryUI : MonoBehaviour
         }
 
         if (inventory.chestID != 0) {
-            chestItems = inventory.GetChestItems();
-            chestCounts = inventory.GetChestCounts();
+            chestItems = inventory.chests[inventory.chestID-1].items;
+            chestCounts = inventory.chests[inventory.chestID-1].counts;
 
             for (int i = 0; i < chestItems.Count; i++)
             {
@@ -88,7 +88,7 @@ public class InventoryUI : MonoBehaviour
                     chestSlots[i].RemoveItem();
                 } else
                 {
-                    chestSlots[i].ChangeItem(inventory.GetChestItems()[i], inventory.GetChestCounts()[i]);
+                    chestSlots[i].ChangeItem(chestItems[i], chestCounts[i]);
                 }
             }
         }
@@ -102,7 +102,7 @@ public class InventoryUI : MonoBehaviour
         descriptionTMP.text = item.description;
         descriptionTMP.enabled = true;
 
-        Trader.instance.UpdateTraderUI();
+        TradingManager.instance.UpdateTraderUI();
     }
 
     public void Deselect() {
@@ -112,5 +112,7 @@ public class InventoryUI : MonoBehaviour
         titleTMP.enabled = false;
         descriptionTMP.text = "";
         descriptionTMP.enabled = false;
+
+        TradingManager.instance.UpdateTraderUI();
     }
 }

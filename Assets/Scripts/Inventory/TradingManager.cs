@@ -4,9 +4,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Trader : MonoBehaviour
+public class TradingManager : MonoBehaviour
 {
-    public static Trader instance; void Awake() { instance = this; }
+    public static TradingManager instance; void Awake() { instance = this; }
 
     InventorySlot[] traderSlots;
     InventoryManager inventory;

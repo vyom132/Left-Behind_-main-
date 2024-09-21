@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour
+public class ChestInteraction : MonoBehaviour
 {
-    public int chestID;
+    public int chestID; // Starts from 1
     public Transform player;
 
     void OnTriggerEnter(Collider collider) {

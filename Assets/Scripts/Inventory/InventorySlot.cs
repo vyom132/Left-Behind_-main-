@@ -50,11 +50,11 @@ public class InventorySlot : MonoBehaviour
             inventory.CollectItemFromChest(item);
         } else if (isTraderSlot)
         {
-            Trader.instance.InitiateTrade(item);
+            TradingManager.instance.InitiateTrade(item);
         } else
         {
             if (inventory.nearStore && item.isTradable) {
-                Trader.instance.UpdateTraderUI();
+                TradingManager.instance.UpdateTraderUI();
             }
             
             if (inventory.selected == item) {
