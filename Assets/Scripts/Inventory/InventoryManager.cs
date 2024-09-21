@@ -67,7 +67,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void CollectItemFromChest(Item item) {
-        int index = GetChestItems().IndexOf(item);
+        int index = chests[chestID-1].items.IndexOf(item);
 
         Increase(item, chests[chestID-1].counts[index]);
         Debug.Log("Moved " + item.itemName + " (" + chests[chestID-1].counts[index] + ") from chest to inventory");
@@ -75,39 +75,5 @@ public class InventoryManager : MonoBehaviour
         chests[chestID-1].items[index] = null;
         chests[chestID-1].counts[index] = 0;
         InventoryUI.instance.UpdateUI();
-    }
-
-    public List<Item> GetChestItems() {
-        return chests[chestID-1].items;
-
-        // switch (chestID)
-        // {
-        //     case 1:
-        //         return chestOneItems;
-        //     case 2:
-        //         return chestTwoItems;
-        //     case 3:
-        //         return chestThreeItems;
-        //     default:
-        //         Debug.Log("Can't access chest items");
-        //         return null;
-        // }
-    }
-
-    public List<int> GetChestCounts() {
-        return chests[chestID-1].counts;
-
-        // switch (chestID)
-        // {
-        //     case 1:
-        //         return chestOneCounts;
-        //     case 2:
-        //         return chestTwoCounts;
-        //     case 3:
-        //         return chestThreeCounts;
-        //     default:
-        //         Debug.Log("Can't access chest counts");
-        //         return null;
-        // }
     }
 }
