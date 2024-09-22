@@ -2300,9 +2300,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDialougeEnd: 0
   textComp: {fileID: 1710031807}
-  lines:
-  - Hey! im abhi
-  - Abhi can u touch me down there
-  - wow i enjoyed that bye
+  lines: []
   textSpeed: 0.1
   canType: 0
