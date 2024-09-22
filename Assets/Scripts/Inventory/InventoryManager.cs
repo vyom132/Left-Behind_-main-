@@ -6,20 +6,11 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance; void Awake() { instance = this; }
 
-    // public List<Item> chestOneItems = new List<Item>();
-    // public List<Item> chestTwoItems = new List<Item>();
-    // public List<Item> chestThreeItems = new List<Item>();
-
-    // public List<int> chestOneCounts = new List<int>();
-    // public List<int> chestTwoCounts = new List<int>();
-    // public List<int> chestThreeCounts = new List<int>();
-
     public List<Chest> chests = new List<Chest>();
-
     public List<Item> items = new List<Item>();
     public List<int> counts = new List<int>();
 
-    public Item selected;
+    public Item selected = null;
     public bool nearStore = false;
     public int chestID = 0; // 0 if not in chest, otherwise ID of chest
     public bool active = false;
@@ -56,6 +47,9 @@ public class InventoryManager : MonoBehaviour
             counts[index] = 0;
             items[index] = null;
             Debug.Log("Removed " + item.name + " from inventory");
+
+            if (items[index] == selected)
+            InventoryUI.instance.Deselect();
         } else if (count < counts[index])
         {
             counts[index] -= count;
