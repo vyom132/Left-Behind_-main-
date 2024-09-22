@@ -6,15 +6,20 @@ using TMPro;
 
 public class InventorySlot : MonoBehaviour
 {
-    public TMP_Text countTMP;
-    public Image icon;
-    public bool isChestSlot = false;
-    public bool isTraderSlot = false;
+    [SerializeField]
+    private TMP_Text countTMP;
+    [SerializeField]
+    private Image icon;
+    [SerializeField]
+    private bool isChestSlot = false;
+    [SerializeField]
+    private bool isTraderSlot = false;
+
     public Item item;
     public bool isEmpty = true;
 
-    InventoryManager inventory;
-    InventoryUI inventoryUI;
+    private InventoryManager inventory;
+    private InventoryUI inventoryUI;
 
     void Start() {
         inventory = InventoryManager.instance;

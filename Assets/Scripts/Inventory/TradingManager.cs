@@ -8,15 +8,19 @@ public class TradingManager : MonoBehaviour
 {
     public static TradingManager instance; void Awake() { instance = this; }
 
-    InventorySlot[] traderSlots;
-    InventoryManager inventory;
-    TradeItems tradeItems;
-    int importIndex;
+    [SerializeField]
+    private Transform player;
+    [SerializeField]
+    private TMP_Text infoTMP;
+    [SerializeField]
+    private Button tradeButton;
+    [SerializeField]
+    private GameObject tradePanel;
 
-    public Transform player;
-    public TMP_Text infoTMP;
-    public Button tradeButton;
-    public GameObject tradePanel;
+    private InventorySlot[] traderSlots;
+    private InventoryManager inventory;
+    private TradeItems tradeItems;
+    private int importIndex;
 
     void Start() {
         traderSlots = tradePanel.GetComponentsInChildren<InventorySlot>();
