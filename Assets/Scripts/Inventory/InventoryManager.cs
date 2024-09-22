@@ -6,14 +6,13 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance; void Awake() { instance = this; }
 
-    public List<Chest> chests = new List<Chest>();
-    public List<Item> items = new List<Item>();
-    public List<int> counts = new List<int>();
+    public static List<Item> items = new List<Item>();
+    public static List<int> counts = new List<int>();
 
+    public List<Chest> chestsInScene;
     public Item selected = null;
     public bool nearStore = false;
     public int chestID = 0; // 0 if not in chest, otherwise ID of chest
-    public bool active = false;
 
     public void Increase(Item item, int count) {
         if (items.Contains(item)) {
@@ -61,13 +60,13 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void CollectItemFromChest(Item item) {
-        int index = chests[chestID-1].items.IndexOf(item);
+        int index = chestsInScene[chestID-1].items.IndexOf(item);
 
-        Increase(item, chests[chestID-1].counts[index]);
-        Debug.Log("Moved " + item.itemName + " (" + chests[chestID-1].counts[index] + ") from chest to inventory");
+        Increase(item, chestsInScene[chestID-1].counts[index]);
+        Debug.Log("Moved " + item.itemName + " (" + chestsInScene[chestID-1].counts[index] + ") from chest to inventory");
 
-        chests[chestID-1].items[index] = null;
-        chests[chestID-1].counts[index] = 0;
+        chestsInScene[chestID-1].items[index] = null;
+        chestsInScene[chestID-1].counts[index] = 0;
         InventoryUI.instance.UpdateUI();
     }
 }

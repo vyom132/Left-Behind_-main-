@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ChestInteraction : MonoBehaviour
 {
-    public int chestID; // Starts from 1
-    public Transform player;
+    [SerializeField]
+    private int chestID; // Starts from 1
+    [SerializeField]
+    private Transform player;
 
     void OnTriggerEnter(Collider collider) {
         if (collider.CompareTag("Player")) {

@@ -7,18 +7,23 @@ public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI instance; void Awake() { instance = this; }
 
-    InventoryManager inventory;
-    InventorySlot[] inventorySlots;
-    InventorySlot[] chestSlots;
-    List<Item> chestItems;
-    List<int> chestCounts;
+    [SerializeField]
+    private TMP_Text titleTMP;
+    [SerializeField]
+    private TMP_Text descriptionTMP;
 
-    public TMP_Text titleTMP;
-    public TMP_Text descriptionTMP;
+    [SerializeField]
+    private GameObject slotsPanel;
+    [SerializeField]
+    private GameObject chestPanel;
+    [SerializeField]
+    private GameObject traderPanel;
 
-    public GameObject slotsPanel;
-    public GameObject chestPanel;
-    public GameObject traderPanel;
+    private InventoryManager inventory;
+    private InventorySlot[] inventorySlots;
+    private InventorySlot[] chestSlots;
+    private List<Item> chestItems;
+    private List<int> chestCounts;
 
     void Start()
     {
@@ -48,7 +53,6 @@ public class InventoryUI : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            inventory.active = true;
             inventory.selected = null;
 
             TradingManager.instance.UpdateTraderUI();
@@ -59,7 +63,6 @@ public class InventoryUI : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            inventory.active = true;
             inventory.selected = null;
             Deselect();
         }
@@ -68,19 +71,19 @@ public class InventoryUI : MonoBehaviour
     public void UpdateUI() {
         Debug.Log("Updating inventory UI");
 
-        for (int i = 0; i < inventory.items.Count; i++)
+        for (int i = 0; i < InventoryManager.items.Count; i++)
         {
-            if (inventory.counts[i] == 0) {
+            if (InventoryManager.counts[i] == 0) {
                 inventorySlots[i].RemoveItem();
             } else
             {
-                inventorySlots[i].ChangeItem(inventory.items[i], inventory.counts[i]);
+                inventorySlots[i].ChangeItem(InventoryManager.items[i], InventoryManager.counts[i]);
             }
         }
 
         if (inventory.chestID != 0) {
-            chestItems = inventory.chests[inventory.chestID-1].items;
-            chestCounts = inventory.chests[inventory.chestID-1].counts;
+            chestItems = inventory.chestsInScene[inventory.chestID-1].items;
+            chestCounts = inventory.chestsInScene[inventory.chestID-1].counts;
 
             for (int i = 0; i < chestItems.Count; i++)
             {
@@ -113,15 +116,11 @@ public class InventoryUI : MonoBehaviour
     public void ChangeDescription(Item item) {
         if (item == null) {
             titleTMP.text = "";
-            titleTMP.enabled = false;
             descriptionTMP.text = "";
-            descriptionTMP.enabled = false;
         } else
         {
             titleTMP.text = item.itemName;
-            titleTMP.enabled = true;
             descriptionTMP.text = item.description;
-            descriptionTMP.enabled = true;
         }
     }
 }
