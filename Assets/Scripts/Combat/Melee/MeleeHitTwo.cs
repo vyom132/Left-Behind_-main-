@@ -7,8 +7,6 @@ using UnityEngine;
 public class MeleeHitTwo : MonoBehaviour
 {
     private bool targetHit;
-    public GameObject parent;
-    public GameObject particle;
 
     void Start()
     {
@@ -20,10 +18,6 @@ public class MeleeHitTwo : MonoBehaviour
         if (other.gameObject.tag == "enemy")
         {
             Debug.Log("wall got it2nd");
-            GameObject spark = Instantiate(particle, parent.transform.position, Quaternion.identity);
-
-            //await Task.Delay(2000);
-            Destroy(spark);
         }
     }
 }
