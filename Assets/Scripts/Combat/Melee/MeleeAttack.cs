@@ -11,8 +11,6 @@ public class MeleeAttack : MonoBehaviour
     public GameObject meelee2;
     public GameObject attack3;
     public GameObject meelee3;
-    public GameObject particle;
-    public GameObject sparkspawn;
     public Animator anim;
 
     private bool at1D;

@@ -8,8 +8,6 @@ public class MeleeHitThree : MonoBehaviour
 {
 
     private bool targetHit;
-    public GameObject parent;
-    public GameObject particle;
 
     void Start()
     {
@@ -21,10 +19,6 @@ public class MeleeHitThree : MonoBehaviour
         if (other.gameObject.tag == "enemy")
         {
             Debug.Log("enemny got it3rd");
-            GameObject spark = Instantiate(particle, parent.transform.position, Quaternion.identity);
-
-            await Task.Delay(1000);
-            Destroy(spark);
         }
     }
 }
