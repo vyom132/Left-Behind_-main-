@@ -66,7 +66,7 @@ public class InventoryUI : MonoBehaviour
     }
 
     public void UpdateUI() {
-        Debug.Log("Updating UI");
+        Debug.Log("Updating inventory UI");
 
         for (int i = 0; i < inventory.items.Count; i++)
         {
@@ -96,23 +96,32 @@ public class InventoryUI : MonoBehaviour
 
     public void Select(Item item) {
         inventory.selected = item;
+        ChangeDescription(item);
 
-        titleTMP.text = item.itemName;
-        titleTMP.enabled = true;
-        descriptionTMP.text = item.description;
-        descriptionTMP.enabled = true;
-
+        if (inventory.nearStore)
         TradingManager.instance.UpdateTraderUI();
     }
 
     public void Deselect() {
         inventory.selected = null;
+        ChangeDescription(null);
 
-        titleTMP.text = "";
-        titleTMP.enabled = false;
-        descriptionTMP.text = "";
-        descriptionTMP.enabled = false;
-
+        if (inventory.nearStore)
         TradingManager.instance.UpdateTraderUI();
+    }
+
+    public void ChangeDescription(Item item) {
+        if (item == null) {
+            titleTMP.text = "";
+            titleTMP.enabled = false;
+            descriptionTMP.text = "";
+            descriptionTMP.enabled = false;
+        } else
+        {
+            titleTMP.text = item.itemName;
+            titleTMP.enabled = true;
+            descriptionTMP.text = item.description;
+            descriptionTMP.enabled = true;
+        }
     }
 }

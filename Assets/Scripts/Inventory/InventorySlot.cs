@@ -36,21 +36,20 @@ public class InventorySlot : MonoBehaviour
             countTMP.text = "";
             isEmpty = true;
         }
-        // else
-        // {
-        //     Debug.Log("Slot is already empty");
-        // }
     }
 
     public void SelectItem() {
         if (isEmpty) {
             Debug.Log("Slot is empty");
+            inventoryUI.Deselect();
         } else if (isChestSlot)
         {
             inventory.CollectItemFromChest(item);
+            inventoryUI.ChangeDescription(item);
         } else if (isTraderSlot)
         {
             TradingManager.instance.InitiateTrade(item);
+            inventoryUI.ChangeDescription(item);
         } else
         {
             if (inventory.nearStore && item.isTradable) {

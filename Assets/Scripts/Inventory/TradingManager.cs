@@ -61,9 +61,7 @@ public class TradingManager : MonoBehaviour
 
             for (int i = 0; i < traderSlots.Length; i++)
             {
-                Debug.Log(tradeItems.items[i].itemName + " : " + tradeItems.counts[i]);
                 traderSlots[i].ChangeItem(tradeItems.items[i], tradeItems.counts[i]); // Check TradeItems.cs for more information
-                Debug.Log(traderSlots[i].item.itemName + " : " + traderSlots[i].countTMP.text);
             }
 
             InitiateTrade(null);
@@ -77,7 +75,6 @@ public class TradingManager : MonoBehaviour
         } else
         {
             importIndex = tradeItems.items.IndexOf(item);
-            Debug.Log(importIndex);
 
             infoTMP.text = "Trade 1 " + inventory.selected.itemName + " for " + tradeItems.counts[importIndex] + " " + tradeItems.items[importIndex].itemName + "?";
             tradeButton.interactable = true;
@@ -85,6 +82,9 @@ public class TradingManager : MonoBehaviour
     }
 
     public void Trade() {
-        Debug.Log("To trade 1 " + inventory.selected.itemName + " for " + tradeItems.counts[importIndex] + " " + tradeItems.items[importIndex].itemName);
+        inventory.Increase(tradeItems.items[importIndex], tradeItems.counts[importIndex]);
+        inventory.Decrease(inventory.selected, 1);
+        InventoryUI.instance.UpdateUI();
+        UpdateTraderUI();
     }
 }
