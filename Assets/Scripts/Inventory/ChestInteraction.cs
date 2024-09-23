@@ -11,13 +11,13 @@ public class ChestInteraction : MonoBehaviour
 
     void OnTriggerEnter(Collider collider) {
         if (collider.CompareTag("Player")) {
-            InventoryManager.instance.chestID = chestID;
+            InventoryManager.instance.ChangeChestID(chestID, true);
         }
     }
 
     void OnTriggerExit(Collider collider) {
         if (collider.CompareTag("Player")) {
-            InventoryManager.instance.chestID = 0;
+            InventoryManager.instance.ChangeChestID(chestID, false);
         }
     }
 }

@@ -47,10 +47,6 @@ public class InventorySlot : MonoBehaviour
         if (isEmpty) {
             Debug.Log("Slot is empty");
             inventoryUI.Deselect();
-        } else if (isChestSlot)
-        {
-            inventory.CollectItemFromChest(item);
-            inventoryUI.ChangeDescription(item);
         } else if (isTraderSlot)
         {
             TradingManager.instance.InitiateTrade(item);
