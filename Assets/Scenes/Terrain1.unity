@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.702
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.060172625, g: 0.05183203, b: 0.07345101, a: 0.702}
+  m_IndirectSpecularColor: {r: 0.06017265, g: 0.051832043, b: 0.073451124, a: 0.702}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -471,7 +471,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1578115774535587951}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 183.542, z: 0}
 --- !u!95 &105541020
 Animator:
@@ -891,7 +891,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1578115774535587951}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 183.542, z: 0}
 --- !u!95 &151184655
 Animator:
@@ -1675,7 +1675,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1578115774535587951}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 183.542, z: 0}
 --- !u!95 &339539105
 Animator:
@@ -2758,12 +2758,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798680260}
-  m_LocalRotation: {x: -0.000000059604645, y: 0.9995224, z: -0.000000059604645, w: -0.030904144}
-  m_LocalPosition: {x: -0.52, y: 129.54, z: 1.22}
+  m_LocalRotation: {x: -0.000000059604645, y: 0.9995224, z: -0.000000059604645, w: -0.030904114}
+  m_LocalPosition: {x: -0.519989, y: -0.4297054, z: 1.2200158}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1578115774535587951}
+  m_Father: {fileID: 8616562852714595790}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 183.542, z: 0}
 --- !u!95 &798680262
@@ -5003,7 +5003,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1578115774535587951}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 183.542, z: 0}
 --- !u!95 &1646265910
 Animator:
@@ -6821,7 +6821,6 @@ Transform:
   m_LocalScale: {x: -0.5181862, y: -0.4230069, z: -0.4230069}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 798680261}
   - {fileID: 151184654}
   - {fileID: 1646265909}
   - {fileID: 105541019}
@@ -8310,7 +8309,8 @@ Transform:
   m_LocalPosition: {x: -22.634632, y: 20.268188, z: -9.081321}
   m_LocalScale: {x: -0.5181862, y: -0.4230069, z: -0.4230069}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 798680261}
   m_Father: {fileID: 543450652696152497}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
