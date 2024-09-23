@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField]
     private GameObject chestPanel;
     [SerializeField]
-    private GameObject traderPanel;
+    private Button collectButton;
 
     private InventoryManager inventory;
     private InventorySlot[] inventorySlots;
@@ -36,7 +37,7 @@ public class InventoryUI : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) {
-            ToggleInventory(true, (inventory.chestID != 0));
+            ToggleInventory(true, inventory.nearChest);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -68,22 +69,22 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void UpdateUI() {
+    public void UpdateUI(bool afterCollection = false) {
         Debug.Log("Updating inventory UI");
 
-        for (int i = 0; i < InventoryManager.items.Count; i++)
+        for (int i = 0; i < inventory.inventoryStorage.counts.Count; i++)
         {
-            if (InventoryManager.counts[i] == 0) {
+            if (inventory.inventoryStorage.counts[i] == 0) {
                 inventorySlots[i].RemoveItem();
             } else
             {
-                inventorySlots[i].ChangeItem(InventoryManager.items[i], InventoryManager.counts[i]);
+                inventorySlots[i].ChangeItem(inventory.inventoryStorage.items[i], inventory.inventoryStorage.counts[i]);
             }
         }
 
-        if (inventory.chestID != 0) {
-            chestItems = inventory.chestsInScene[inventory.chestID-1].items;
-            chestCounts = inventory.chestsInScene[inventory.chestID-1].counts;
+        if (inventory.nearChest) {
+            chestItems = inventory.GetChest().items;
+            chestCounts = inventory.GetChest().counts;
 
             for (int i = 0; i < chestItems.Count; i++)
             {
@@ -94,7 +95,14 @@ public class InventoryUI : MonoBehaviour
                     chestSlots[i].ChangeItem(chestItems[i], chestCounts[i]);
                 }
             }
+        } else if (afterCollection)
+        {
+            foreach (var item in chestSlots) {
+                item.RemoveItem();
+            }
         }
+
+        collectButton.interactable = inventory.nearChest;
     }
 
     public void Select(Item item) {

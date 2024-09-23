@@ -6,52 +6,63 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance; void Awake() { instance = this; }
 
-    public static List<Item> items = new List<Item>();
-    public static List<int> counts = new List<int>();
+    // public static List<Item> inventoryStorage.items = new List<Item>();
+    // public static List<int> inventoryStorage.counts = new List<int>();
 
-    public List<Chest> chestsInScene;
+    public InventoryStorage inventoryStorage;
+    public ChestsInLevel chestsInLevel;
     public Item selected = null;
     public bool nearStore = false;
-    public int chestID = 0; // 0 if not in chest, otherwise ID of chest
+    public bool nearChest = false;
+    public int chestID = 0;
+
+    // TEMPORARY, WILL BE REMOVED AND ADDED TO START OF GAME AFTER IMPLEMENTATION
+    void Start() {
+        Debug.Log("Resetting...");
+        inventoryStorage.items.Clear();
+        inventoryStorage.counts.Clear();
+
+        for (int i = 0; i < chestsInLevel.wasCollected.Count; i++) {
+            chestsInLevel.wasCollected[i] = false;
+        }
+    }
 
     public void Increase(Item item, int count) {
-        if (items.Contains(item)) {
-            counts[items.IndexOf(item)] += count;
+        if (inventoryStorage.items.Contains(item)) {
+            inventoryStorage.counts[inventoryStorage.items.IndexOf(item)] += count;
         } else
         {
             bool found = false;
-            for (int i = 0; i < items.Count; i++)
+            for (int i = 0; i < inventoryStorage.items.Count; i++)
             {
-                if (counts[i] == 0) {
-                    items[i] = item;
-                    counts[i] = count;
+                if (inventoryStorage.counts[i] == 0) {
+                    inventoryStorage.items[i] = item;
+                    inventoryStorage.counts[i] = count;
                     found = true;
                     break;
                 }
             }
             if (!found) {
-                items.Add(item);
-                counts.Add(count);
+                inventoryStorage.items.Add(item);
+                inventoryStorage.counts.Add(count);
             }
         }
     }
 
     public void Decrease(Item item, int count) {
-        if (!items.Contains(item)) {
+        if (!inventoryStorage.items.Contains(item)) {
             Debug.Log("Item " + item.name + " doesn't exist in inventory");
         }
 
-        int index = items.IndexOf(item);
-        if (count == counts[index]) {
-            counts[index] = 0;
-            items[index] = null;
+        int index = inventoryStorage.items.IndexOf(item);
+        if (count == inventoryStorage.counts[index]) {
+            inventoryStorage.counts[index] = 0;
+            inventoryStorage.items[index] = null;
             Debug.Log("Removed " + item.name + " from inventory");
-
-            if (items[index] == selected)
             InventoryUI.instance.Deselect();
-        } else if (count < counts[index])
+        } else if (count < inventoryStorage.counts[index])
         {
-            counts[index] -= count;
+            inventoryStorage.counts[index] -= count;
             Debug.Log("Reduced count of " + item.name + " by " + count);
         } else
         {
@@ -59,14 +70,32 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void CollectItemFromChest(Item item) {
-        int index = chestsInScene[chestID-1].items.IndexOf(item);
+    public void CollectItemsFromChest() {
+        for (int i = 0; i < GetChest().counts.Count; i++) {
+            Increase(GetChest().items[i], GetChest().counts[i]);
+        }
 
-        Increase(item, chestsInScene[chestID-1].counts[index]);
-        Debug.Log("Moved " + item.itemName + " (" + chestsInScene[chestID-1].counts[index] + ") from chest to inventory");
+        Debug.Log("Moved items from chest to inventory");
+        chestsInLevel.wasCollected[chestID] = true;
+        nearChest = false;
+        InventoryUI.instance.UpdateUI(true);
+    }
 
-        chestsInScene[chestID-1].items[index] = null;
-        chestsInScene[chestID-1].counts[index] = 0;
-        InventoryUI.instance.UpdateUI();
+    public Chest GetChest() {
+        foreach (var count in chestsInLevel.chests[chestID].counts) {
+            Debug.Log(count);
+        }
+        return chestsInLevel.chests[chestID];
+    }
+
+    public void ChangeChestID(int id, bool active) {
+        if (chestsInLevel.wasCollected[chestID]) {
+            nearChest = false;
+        } else
+        {
+            nearChest = active;
+        }
+
+        chestID = id;
     }
 }
