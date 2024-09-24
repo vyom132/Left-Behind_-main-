@@ -53,7 +53,7 @@ public class InventorySlot : MonoBehaviour
             inventoryUI.ChangeDescription(item);
         } else
         {
-            if (inventory.nearStore && item.isTradable) {
+            if (inventory.nearTrader && item.isTradable) {
                 TradingManager.instance.UpdateTraderUI();
             }
             

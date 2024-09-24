@@ -10,6 +10,19 @@ public class TradingManager : MonoBehaviour
 
     [SerializeField]
     private Transform player;
+
+    void OnTriggerEnter(Collider collider) {
+        if (collider.CompareTag("Player")) {
+            inventory.nearTrader = true;
+        }
+    }
+
+    void OnTriggerExit(Collider collider) {
+        if (collider.CompareTag("Player")) {
+            inventory.nearTrader = false;
+        }
+    }
+
     [SerializeField]
     private TMP_Text infoTMP;
     [SerializeField]
@@ -27,22 +40,10 @@ public class TradingManager : MonoBehaviour
         inventory = InventoryManager.instance;
     }
 
-    void OnTriggerEnter(Collider collider) {
-        if (collider.CompareTag("Player")) {
-            inventory.nearStore = true;
-        }
-    }
-
-    void OnTriggerExit(Collider collider) {
-        if (collider.CompareTag("Player")) {
-            inventory.nearStore = false;
-        }
-    }
-
     public void UpdateTraderUI(bool active=true) {
         Debug.Log("Updating trader UI");
 
-        if (!inventory.nearStore) {
+        if (!inventory.nearTrader) {
             tradePanel.SetActive(false);
             return;
         } else
