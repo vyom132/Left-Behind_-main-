@@ -86,9 +86,9 @@ public class InventoryManager : MonoBehaviour
     }
 
     public Chest GetChest() {
-        foreach (var count in chestsInLevel.chests[chestID].counts) {
-            Debug.Log(count);
-        }
+        // foreach (var count in chestsInLevel.chests[chestID].counts) {
+        //     Debug.Log(count);
+        // }
         return chestsInLevel.chests[chestID];
     }
 

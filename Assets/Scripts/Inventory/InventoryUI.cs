@@ -9,19 +9,22 @@ public class InventoryUI : MonoBehaviour
     public static InventoryUI instance; void Awake() { instance = this; }
 
     [SerializeField]
-    private Canvas canvas;
-
-    [SerializeField]
     private TMP_Text titleTMP;
     [SerializeField]
     private TMP_Text descriptionTMP;
 
+    [SerializeField]
+    private GameObject inventoryPanel;
+    [SerializeField]
+    private GameObject upgradingPanel;
     [SerializeField]
     private GameObject slotsPanel;
     [SerializeField]
     private GameObject chestPanel;
     [SerializeField]
     private Button collectButton;
+    [SerializeField]
+    private List<UpgradingUI> upgradingUIs;
 
     private InventoryManager inventory;
     private InventorySlot[] inventorySlots;
@@ -31,7 +34,9 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
-        canvas.enabled = false;
+        inventoryPanel.SetActive(true);
+        upgradingPanel.SetActive(false);
+        GetComponent<Canvas>().enabled = false;
         inventory = InventoryManager.instance;
         inventorySlots = slotsPanel.GetComponentsInChildren<InventorySlot>();
         chestSlots = chestPanel.GetComponentsInChildren<InventorySlot>();
@@ -52,7 +57,7 @@ public class InventoryUI : MonoBehaviour
         if (turnOn) {
             UpdateUI();
 
-            canvas.enabled = true;
+            GetComponent<Canvas>().enabled = true;
             chestPanel.SetActive(chest);
 
             Cursor.lockState = CursorLockMode.None;
@@ -62,7 +67,7 @@ public class InventoryUI : MonoBehaviour
             TradingManager.instance.UpdateTraderUI();
         } else
         {
-            canvas.enabled = false;
+            GetComponent<Canvas>().enabled = false;
             chestPanel.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
@@ -72,12 +77,16 @@ public class InventoryUI : MonoBehaviour
         }
 
         if (inventory.nearUpgrader) {
-            gameObject.SetActive(false);
-            UpgradingUI.instance.ToggleUpgradingUI(turnOn);
+            inventoryPanel.SetActive(false);
+            upgradingPanel.SetActive(turnOn);
+            foreach (var upgradingUI in upgradingUIs) {
+                Debug.Log("Updating upgrade UI of " + upgradingUI.itemToUpgrade);
+                upgradingUI.UpdateUpgradingUI();
+            }
         } else
         {
-            gameObject.SetActive(true);
-            UpgradingUI.instance.ToggleUpgradingUI(false);
+            inventoryPanel.SetActive(true);
+            upgradingPanel.SetActive(false);
         }
     }
 
@@ -95,7 +104,8 @@ public class InventoryUI : MonoBehaviour
         }
 
         if (inventory.nearChest) {
-            Debug.Log(inventory.GetChest().counts.Count);
+            // Debug.Log(inventory.GetChest().counts.Count);
+            
             for (int i = 0; i < inventory.GetChest().counts.Count; i++)
             {
                 if (inventory.GetChest().items[i] == null) {
