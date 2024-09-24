@@ -3,22 +3,20 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
+    public static Health instance; void Awake() { instance = this; }
 
     // public Text healthText;
     public Image healthBar;
 
-    public Text playerkahealth;
-
-    public Text botkaenergyhealthbar;
-
-    
+    public TMP_Text playerkahealth;
 
     public Image PlayerHealth;
 
-    public float damage = 30;
+    public float damage;
     public float healthnipenchurakojja = 30;
 
     float lerpSpeed = 5f;    
@@ -30,6 +28,8 @@ public class Health : MonoBehaviour
     int botHealth;
 
     float maxHealth = 100;
+
+    public bool takingDmg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,12 +47,14 @@ public class Health : MonoBehaviour
             botHealth -= 10;
         }
 
-        if (Input.GetKeyDown(KeyCode.V) && healthPlayer > 0) {
+        if (takingDmg && healthPlayer > 0) {
             if (healthPlayer <= damage) {
                 healthPlayer = 0;
+                takingDmg = false;
             }
-            if (healthPlayer > damage) {
+            else if (healthPlayer > damage) {
                 healthPlayer -= damage;
+                takingDmg = false;
             }
         }
 

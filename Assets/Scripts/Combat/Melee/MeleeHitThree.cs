@@ -6,11 +6,14 @@ using UnityEngine;
 
 public class MeleeHitThree : MonoBehaviour
 {
+    public EnemyHealth EnemyHealthBarChanging;
+    public float Enemydamager;
 
     private bool targetHit;
 
     void Start()
     {
+        EnemyHealthBarChanging = EnemyHealth.instance;
         targetHit = false;
     }
 
@@ -18,7 +21,18 @@ public class MeleeHitThree : MonoBehaviour
     {
         if (other.gameObject.tag == "enemy")
         {
+            EnemyHealthBarChanging.EnemytakingDmg = true;
+            EnemyHealthBarChanging.Enemydamage = Enemydamager;
             Debug.Log("enemny got it3rd");
+        }
+    }
+
+    async private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "enemy")
+        {
+            EnemyHealthBarChanging.EnemytakingDmg = false;
+            Debug.Log("enemny stopped got it3rd");
         }
     }
 }
