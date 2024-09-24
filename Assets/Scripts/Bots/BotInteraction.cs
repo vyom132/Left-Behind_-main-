@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BotInteract : MonoBehaviour
+public class BotInteraction : MonoBehaviour
 {
 
     public GameObject Interactor;
