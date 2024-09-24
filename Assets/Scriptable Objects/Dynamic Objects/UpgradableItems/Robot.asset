@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07d45f18e059b848a4f9f5f312d76d1, type: 3}
   m_Name: Robot
   m_EditorClassIdentifier: 
-  initialIcon: {fileID: 21300000, guid: ad87f77a8ea8cf64f86ca00a114040d7, type: 3}
+  currentLevel: 2
   upgrades:
   - {fileID: 11400000, guid: d0a6f9509a698444c968ba9a6fbe86ab, type: 2}
   - {fileID: 11400000, guid: 69f84b196571b4a46ba340187759ee95, type: 2}
-  upgradesDone: 0000
-  currentLevel: 0
-  itemToUpgrade: Robot

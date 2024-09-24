@@ -9,6 +9,9 @@ public class InventoryUI : MonoBehaviour
     public static InventoryUI instance; void Awake() { instance = this; }
 
     [SerializeField]
+    private InventoryStorage inventoryStorage;
+
+    [SerializeField]
     private TMP_Text titleTMP;
     [SerializeField]
     private TMP_Text descriptionTMP;
@@ -45,7 +48,7 @@ public class InventoryUI : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) {
-            ToggleInventory(true, inventory.nearChest);
+            ToggleInventory(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -53,12 +56,12 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void ToggleInventory(bool turnOn, bool chest = false) {
+    public void ToggleInventory(bool turnOn) {
         if (turnOn) {
             UpdateUI();
 
             GetComponent<Canvas>().enabled = true;
-            chestPanel.SetActive(chest);
+            chestPanel.SetActive(inventory.nearChest);
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -80,7 +83,6 @@ public class InventoryUI : MonoBehaviour
             inventoryPanel.SetActive(false);
             upgradingPanel.SetActive(turnOn);
             foreach (var upgradingUI in upgradingUIs) {
-                Debug.Log("Updating upgrade UI of " + upgradingUI.itemToUpgrade);
                 upgradingUI.UpdateUpgradingUI();
             }
         } else
@@ -93,13 +95,13 @@ public class InventoryUI : MonoBehaviour
     public void UpdateUI(bool afterCollection = false) {
         Debug.Log("Updating inventory UI");
 
-        for (int i = 0; i < inventory.inventoryStorage.counts.Count; i++)
+        for (int i = 0; i < inventoryStorage.counts.Count; i++)
         {
-            if (inventory.inventoryStorage.counts[i] == 0) {
+            if (inventoryStorage.counts[i] == 0) {
                 inventorySlots[i].RemoveItem();
             } else
             {
-                inventorySlots[i].ChangeItem(inventory.inventoryStorage.items[i], inventory.inventoryStorage.counts[i]);
+                inventorySlots[i].ChangeItem(inventoryStorage.items[i], inventoryStorage.counts[i]);
             }
         }
 

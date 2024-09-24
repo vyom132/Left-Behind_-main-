@@ -5,9 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Upgrade Requirement", menuName = "Inventory/Upgrade Requirement")]
 public class UpgradeRequirements : ScriptableObject
 {
-    public string toUpgrade;
     public int levelTransition;
-    public Sprite finalIcon;
+    public Sprite initialIcon;
     public List<Item> items;
     public List<int> counts;
 }
