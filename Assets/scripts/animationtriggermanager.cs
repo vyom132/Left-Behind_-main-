@@ -3,21 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class animationtriggermanager : MonoBehaviour
+public class AnimationTriggerManager : MonoBehaviour
 {
     [SerializeField]
     Animator anim;
-   public  Animator anim2;
-
-
-
-
-
-    void Start()
-    {
-
-    }
-
+    public  Animator anim2;
 
     void OnTriggerEnter(Collider other)
     {
@@ -27,6 +17,7 @@ public class animationtriggermanager : MonoBehaviour
             anim2.Play("paintingfalling", 0, 0f);
         }
     }
+
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -34,6 +25,4 @@ public class animationtriggermanager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }
