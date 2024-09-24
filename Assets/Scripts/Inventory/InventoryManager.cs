@@ -6,28 +6,40 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance; void Awake() { instance = this; }
 
-    public InventoryStorage inventoryStorage;
-    public ChestsInLevel chestsInLevel;
     public Item selected;
     public bool nearTrader;
     public bool nearChest;
     public bool nearUpgrader;
     public int chestID;
 
+    [SerializeField]
+    private InventoryStorage inventoryStorage;
+    [SerializeField]
+    private ChestsInLevel chestsInLevel;
+    [SerializeField]
+    private List<UpgradableItem> upgradableItems;
+
     void Start() {
         selected = null;
         nearTrader = false;
         nearChest = false;
         nearUpgrader = false;
-        chestID = 0;
 
-        // RESET IS TEMPORARY, WILL BE MOVED TO START OF GAME AFTER IMPLEMENTATION
+        // AFTER IMPLEMENTATION THIS WILL ONLY BE CALLED AT START OF GAME
+        ResetValues();
+    }
+
+    void ResetValues() {
         Debug.Log("Resetting...");
         inventoryStorage.items.Clear();
         inventoryStorage.counts.Clear();
 
         for (int i = 0; i < chestsInLevel.wasCollected.Count; i++) {
             chestsInLevel.wasCollected[i] = false;
+        }
+
+        foreach (var upgradableItem in upgradableItems) {
+            upgradableItem.currentLevel = 0;
         }
     }
 

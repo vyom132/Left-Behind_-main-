@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2f184ae9d8f03469303f62532b333d, type: 3}
   m_Name: Sword Transition 1
   m_EditorClassIdentifier: 
-  toUpgrade: Sword
   levelTransition: 1
-  finalIcon: {fileID: 21300000, guid: 2022d62dc1dc21b448e226b651c9028c, type: 3}
+  initialIcon: {fileID: 21300000, guid: 33e5d5fb632d7274cb378553fa475c78, type: 3}
   items:
   - {fileID: 11400000, guid: ee6c893ed3361c042bc0d646b23fe2c3, type: 2}
   - {fileID: 11400000, guid: f8386b69b50abdf4381aa5e3d7ac9def, type: 2}

@@ -40,7 +40,7 @@ public class TradingManager : MonoBehaviour
         inventory = InventoryManager.instance;
     }
 
-    public void UpdateTraderUI(bool active=true) {
+    public void UpdateTraderUI() {
         Debug.Log("Updating trader UI");
 
         if (!inventory.nearTrader) {
