@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Inventory Level
   m_EditorClassIdentifier: 
   level: 0
-  chests: []
-  wasCollected: 
+  chests:
+  - {fileID: 11400000, guid: f69041bcb932e244dbe943499b9fc803, type: 2}
+  - {fileID: 11400000, guid: c45f462a1b9e82443aa14f239db0c014, type: 2}
+  wasCollected: 0000

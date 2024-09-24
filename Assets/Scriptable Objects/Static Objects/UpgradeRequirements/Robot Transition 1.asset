@@ -9,15 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e55a5007e25944643acce8620665cc1d, type: 3}
-  m_Name: Test Rare Chest
+  m_Script: {fileID: 11500000, guid: cc2f184ae9d8f03469303f62532b333d, type: 3}
+  m_Name: Robot Transition 1
   m_EditorClassIdentifier: 
-  rarity: Test Rare
+  toUpgrade: Robot
+  levelTransition: 0
+  finalIcon: {fileID: 21300000, guid: ff2f4b34aa5291c40ade2c077a679a4b, type: 3}
   items:
-  - {fileID: 11400000, guid: 8f8c0835819f6ff45afbe1aa26f34452, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 11400000, guid: e6137ca489ba62b40b96610ba07adc72, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: a1c1456713879974db921451cc4822de, type: 2}
-  counts: 020000000000000000000000010000000000000001000000
+  - {fileID: 11400000, guid: f8386b69b50abdf4381aa5e3d7ac9def, type: 2}
+  counts: 0200000003000000

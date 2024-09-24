@@ -1,12 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class UpgradingUI : MonoBehaviour
 {
-    public static UpgradingUI instance; void Awake() { instance = this; }
+    [SerializeField]
+    private UpgradesLogger upgradesLogger;
 
-    public void ToggleUpgradingUI(bool turnOn) {
-        gameObject.SetActive(turnOn);
+    [SerializeField]
+    private Image icon;
+    [SerializeField]
+    private GameObject requirementsContainer;
+    [SerializeField]
+    private Button upgradeButton;
+    public string itemToUpgrade;
+
+    public void UpdateUpgradingUI() {
+        UpgradeRequirements reqs = upgradesLogger.GetUpgradableItem(itemToUpgrade).GetItemRequirements();
+        for (int i = 0; i < reqs.items.Count; i++) {
+            Debug.Log(reqs.items[i] + " : " + reqs.counts[i]);
+        }
     }
 }

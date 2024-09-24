@@ -246,7 +246,6 @@ GameObject:
   - component: {fileID: 103862308}
   - component: {fileID: 103862310}
   - component: {fileID: 103862309}
-  - component: {fileID: 103862311}
   m_Layer: 5
   m_Name: Inventory Panel
   m_TagString: Untagged
@@ -317,24 +316,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103862307}
   m_CullTransparentMesh: 1
---- !u!114 &103862311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103862307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77aea266be1dc4848a45f1fabcc1f3aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 1961427114}
-  titleTMP: {fileID: 1508436830}
-  descriptionTMP: {fileID: 1562891639}
-  slotsPanel: {fileID: 1179773316}
-  chestPanel: {fileID: 254150720}
-  collectButton: {fileID: 1405335684}
 --- !u!1 &114472601
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +623,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Metal Scraps
 
-    0 out of 60'
+    0 / 60'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -2369,7 +2350,7 @@ GameObject:
   - component: {fileID: 638539822}
   - component: {fileID: 638539821}
   - component: {fileID: 638539820}
-  - component: {fileID: 638539819}
+  - component: {fileID: 638539825}
   m_Layer: 0
   m_Name: Upgrader
   m_TagString: Untagged
@@ -2377,18 +2358,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &638539819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638539818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d9ee57f0f612dd45a9f167af95c53b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &638539820
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2484,6 +2453,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &638539825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638539818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b37953abaef2f409173d9519b8c972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1416677026854616128}
 --- !u!1001 &652283633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2877,7 +2859,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Energy Orbs
 
-    0 out of 20'
+    0 / 20'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -3095,6 +3077,7 @@ GameObject:
   - component: {fileID: 855655460}
   - component: {fileID: 855655462}
   - component: {fileID: 855655461}
+  - component: {fileID: 855655463}
   m_Layer: 5
   m_Name: Robot Panel
   m_TagString: Untagged
@@ -3164,6 +3147,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855655459}
   m_CullTransparentMesh: 1
+--- !u!114 &855655463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855655459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9ee57f0f612dd45a9f167af95c53b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradesLogger: {fileID: 11400000, guid: 6b9e5a6d77ae488448fd2a5263072c31, type: 2}
+  icon: {fileID: 1454672586}
+  requirementsContainer: {fileID: 168667344}
+  upgradeButton: {fileID: 117983224}
+  itemToUpgrade: Robot
 --- !u!1 &893571820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,7 +3222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Trade 1 Silver for 5 Energy Orbs?
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -3449,7 +3449,7 @@ GameObject:
   - component: {fileID: 922766225}
   - component: {fileID: 922766221}
   m_Layer: 0
-  m_Name: Chest 2
+  m_Name: Chest 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3482,7 +3482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8d189ca69435d4f9cd1703ee1a79a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestID: 2
+  chestID: 1
   player: {fileID: 1416677026854616128}
 --- !u!136 &922766222
 CapsuleCollider:
@@ -5259,7 +5259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Energy Orb
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -5347,6 +5347,7 @@ GameObject:
   - component: {fileID: 1511486073}
   - component: {fileID: 1511486075}
   - component: {fileID: 1511486074}
+  - component: {fileID: 1511486076}
   m_Layer: 5
   m_Name: Sword Panel
   m_TagString: Untagged
@@ -5416,6 +5417,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511486072}
   m_CullTransparentMesh: 1
+--- !u!114 &1511486076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511486072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9ee57f0f612dd45a9f167af95c53b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradesLogger: {fileID: 11400000, guid: 6b9e5a6d77ae488448fd2a5263072c31, type: 2}
+  icon: {fileID: 1076370737}
+  requirementsContainer: {fileID: 2093564118}
+  upgradeButton: {fileID: 1282457251}
+  itemToUpgrade: Sword
 --- !u!1 &1556687325
 GameObject:
   m_ObjectHideFlags: 0
@@ -5571,7 +5589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Used to upgrade pet robot and weapon
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -5928,7 +5946,7 @@ GameObject:
   - component: {fileID: 1617944639}
   - component: {fileID: 1617944638}
   m_Layer: 0
-  m_Name: Chest 1
+  m_Name: Chest 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6025,7 +6043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8d189ca69435d4f9cd1703ee1a79a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestID: 1
+  chestID: 0
   player: {fileID: 1416677026854616128}
 --- !u!54 &1617944639
 Rigidbody:
@@ -6882,6 +6900,7 @@ GameObject:
   - component: {fileID: 1961427113}
   - component: {fileID: 1961427112}
   - component: {fileID: 1961427117}
+  - component: {fileID: 1961427119}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6985,6 +7004,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 1
   m_AspectRatio: 1
+--- !u!114 &1961427119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961427111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77aea266be1dc4848a45f1fabcc1f3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleTMP: {fileID: 1508436830}
+  descriptionTMP: {fileID: 1562891639}
+  inventoryPanel: {fileID: 103862307}
+  upgradingPanel: {fileID: 725894404}
+  slotsPanel: {fileID: 1179773316}
+  chestPanel: {fileID: 254150720}
+  collectButton: {fileID: 1405335684}
+  upgradingUIs:
+  - {fileID: 1511486076}
+  - {fileID: 855655463}
 --- !u!1 &1992620161
 GameObject:
   m_ObjectHideFlags: 0
