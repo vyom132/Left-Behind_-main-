@@ -6,18 +6,22 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance; void Awake() { instance = this; }
 
-    // public static List<Item> inventoryStorage.items = new List<Item>();
-    // public static List<int> inventoryStorage.counts = new List<int>();
-
     public InventoryStorage inventoryStorage;
     public ChestsInLevel chestsInLevel;
-    public Item selected = null;
-    public bool nearStore = false;
-    public bool nearChest = false;
-    public int chestID = 0;
+    public Item selected;
+    public bool nearTrader;
+    public bool nearChest;
+    public bool nearUpgrader;
+    public int chestID;
 
-    // TEMPORARY, WILL BE REMOVED AND ADDED TO START OF GAME AFTER IMPLEMENTATION
     void Start() {
+        selected = null;
+        nearTrader = false;
+        nearChest = false;
+        nearUpgrader = false;
+        chestID = 0;
+
+        // RESET IS TEMPORARY, WILL BE MOVED TO START OF GAME AFTER IMPLEMENTATION
         Debug.Log("Resetting...");
         inventoryStorage.items.Clear();
         inventoryStorage.counts.Clear();

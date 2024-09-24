@@ -9,6 +9,9 @@ public class InventoryUI : MonoBehaviour
     public static InventoryUI instance; void Awake() { instance = this; }
 
     [SerializeField]
+    private Canvas canvas;
+
+    [SerializeField]
     private TMP_Text titleTMP;
     [SerializeField]
     private TMP_Text descriptionTMP;
@@ -28,7 +31,7 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Canvas>().enabled = false;
+        canvas.enabled = false;
         inventory = InventoryManager.instance;
         inventorySlots = slotsPanel.GetComponentsInChildren<InventorySlot>();
         chestSlots = chestPanel.GetComponentsInChildren<InventorySlot>();
@@ -49,7 +52,7 @@ public class InventoryUI : MonoBehaviour
         if (turnOn) {
             UpdateUI();
 
-            GetComponent<Canvas>().enabled = true;
+            canvas.enabled = true;
             chestPanel.SetActive(chest);
 
             Cursor.lockState = CursorLockMode.None;
@@ -59,13 +62,22 @@ public class InventoryUI : MonoBehaviour
             TradingManager.instance.UpdateTraderUI();
         } else
         {
-            GetComponent<Canvas>().enabled = false;
+            canvas.enabled = false;
             chestPanel.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             inventory.selected = null;
             Deselect();
+        }
+
+        if (inventory.nearUpgrader) {
+            gameObject.SetActive(false);
+            UpgradingUI.instance.ToggleUpgradingUI(turnOn);
+        } else
+        {
+            gameObject.SetActive(true);
+            UpgradingUI.instance.ToggleUpgradingUI(false);
         }
     }
 
@@ -83,16 +95,14 @@ public class InventoryUI : MonoBehaviour
         }
 
         if (inventory.nearChest) {
-            chestItems = inventory.GetChest().items;
-            chestCounts = inventory.GetChest().counts;
-
-            for (int i = 0; i < chestItems.Count; i++)
+            Debug.Log(inventory.GetChest().counts.Count);
+            for (int i = 0; i < inventory.GetChest().counts.Count; i++)
             {
-                if (chestItems[i] == null) {
+                if (inventory.GetChest().items[i] == null) {
                     chestSlots[i].RemoveItem();
                 } else
                 {
-                    chestSlots[i].ChangeItem(chestItems[i], chestCounts[i]);
+                    chestSlots[i].ChangeItem(inventory.GetChest().items[i], inventory.GetChest().counts[i]);
                 }
             }
         } else if (afterCollection)
@@ -109,7 +119,7 @@ public class InventoryUI : MonoBehaviour
         inventory.selected = item;
         ChangeDescription(item);
 
-        if (inventory.nearStore)
+        if (inventory.nearTrader)
         TradingManager.instance.UpdateTraderUI();
     }
 
@@ -117,7 +127,7 @@ public class InventoryUI : MonoBehaviour
         inventory.selected = null;
         ChangeDescription(null);
 
-        if (inventory.nearStore)
+        if (inventory.nearTrader)
         TradingManager.instance.UpdateTraderUI();
     }
 
