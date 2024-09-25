@@ -17,7 +17,7 @@ public class SpawnAttackingLevelOne : MonoBehaviour
         if (InstantiationTimer <= 0)
         {
             GameObject at =  Instantiate(attack, parent.transform.position, Quaternion.identity);
-            InstantiationTimer = 2f;
+            InstantiationTimer = 1f;
             await Task.Delay(100);
             Destroy(at);
         }

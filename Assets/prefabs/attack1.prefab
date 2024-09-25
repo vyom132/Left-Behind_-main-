@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb08a44de165023489c4feea1f427e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyHealthBarChanging: {fileID: 0}
+  Enemydamager: 10
 --- !u!54 &9158627575345857093
 Rigidbody:
   m_ObjectHideFlags: 0

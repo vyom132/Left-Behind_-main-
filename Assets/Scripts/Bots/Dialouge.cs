@@ -11,7 +11,10 @@ public class Dialouge : MonoBehaviour
     public bool isDialougeEnd; 
 
     public Text textComp;
-    public string[] lines;
+    public List<string> lines = new List<string>();
+
+    // public List<string> lineItems = new List<string>();
+
     public float textSpeed;
 
     public bool canType;
@@ -19,7 +22,18 @@ public class Dialouge : MonoBehaviour
     private int index;
 
     void Start()
-    {
+    {   
+        
+        lines.Add("Hey abhi");
+        lines.Add("Hey bro");
+        lines.Add("Dw bro");
+
+        // for (int i = 0; i < lineItems.Count; i++)
+        // {
+        //     lines[i] = lineItems[i];
+        // }
+        
+
         textComp.text = string.Empty;
         canType = false;
     }
@@ -62,7 +76,7 @@ public class Dialouge : MonoBehaviour
     }
 
     void NextLine() {
-        if (index < lines.Length - 1) {
+        if (index < lines.Count - 1) {
             index++;    
             textComp.text = string.Empty;
             StartCoroutine(TypeLine());

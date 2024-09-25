@@ -1163,6 +1163,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7200443151508598000, guid: f481f11f9d8ecea438634e40fe0a281f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.17821687
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200443151508598000, guid: f481f11f9d8ecea438634e40fe0a281f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.98399127
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200443151508598000, guid: f481f11f9d8ecea438634e40fe0a281f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 159.468
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200443151508598007, guid: f481f11f9d8ecea438634e40fe0a281f, type: 3}
+      propertyPath: far clip plane
+      value: 174.71
+      objectReference: {fileID: 0}
     - target: {fileID: 7200443151896791113, guid: f481f11f9d8ecea438634e40fe0a281f, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -1173,7 +1189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7200443151896791125, guid: f481f11f9d8ecea438634e40fe0a281f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.66
+      value: 30.9
       objectReference: {fileID: 0}
     - target: {fileID: 7200443151896791125, guid: f481f11f9d8ecea438634e40fe0a281f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1181,7 +1197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7200443151896791125, guid: f481f11f9d8ecea438634e40fe0a281f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.84
+      value: -38.15
       objectReference: {fileID: 0}
     - target: {fileID: 7200443151896791125, guid: f481f11f9d8ecea438634e40fe0a281f, type: 3}
       propertyPath: m_LocalRotation.w
