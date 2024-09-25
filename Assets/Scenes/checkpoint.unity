@@ -1747,7 +1747,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press "E" To Inventory
+  m_text: Press "E" To Interact
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2854,7 +2854,6 @@ GameObject:
   - component: {fileID: 5334037118977900009}
   - component: {fileID: 4539702728736153910}
   - component: {fileID: 5334037118977900010}
-  - component: {fileID: 5334037118977900011}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -3384,19 +3383,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.940286, z: 2}
   m_Center: {x: 0.0000038146973, y: 0.47014296, z: 0.00000047683716}
---- !u!114 &5334037118977900011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832149485964739997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca60c87386cc6489502ecb6b32f08d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1234299315}
 --- !u!33 &5366159434396176316
 MeshFilter:
   m_ObjectHideFlags: 0
