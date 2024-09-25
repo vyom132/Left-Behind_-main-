@@ -87,6 +87,7 @@ public class TradingManager : MonoBehaviour
     }
 
     public void Trade() {
+        Debug.Log("Trading 1 " + inventory.selected.itemName + " for " + tradeItems.counts[importIndex] + " " + tradeItems.items[importIndex].itemName);
         inventory.Increase(tradeItems.items[importIndex], tradeItems.counts[importIndex]);
         inventory.Decrease(inventory.selected, 1);
         InventoryUI.instance.UpdateUI();

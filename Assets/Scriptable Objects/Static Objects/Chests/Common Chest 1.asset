@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc2f184ae9d8f03469303f62532b333d, type: 3}
-  m_Name: Sword Transition 0
+  m_Script: {fileID: 11500000, guid: e55a5007e25944643acce8620665cc1d, type: 3}
+  m_Name: Common Chest 1
   m_EditorClassIdentifier: 
-  levelTransition: 0
-  initialIcon: {fileID: 21300000, guid: 2b8d5a4c500d29446805b13ad411fbe0, type: 3}
   items:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 8f8c0835819f6ff45afbe1aa26f34452, type: 2}
   - {fileID: 11400000, guid: ee6c893ed3361c042bc0d646b23fe2c3, type: 2}
-  - {fileID: 11400000, guid: f8386b69b50abdf4381aa5e3d7ac9def, type: 2}
-  counts: 3c00000014000000
+  - {fileID: 0}
+  counts: 00000000010000000500000000000000
