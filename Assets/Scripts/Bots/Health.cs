@@ -6,11 +6,20 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+
     // public Text healthText;
     public Image healthBar;
+
     public Text playerkahealth;
+
     public Text botkaenergyhealthbar;
+
+    
+
     public Image PlayerHealth;
+
+    public float damage = 30;
+    public float healthnipenchurakojja = 30;
 
     float lerpSpeed = 5f;    
 
@@ -20,6 +29,7 @@ public class Health : MonoBehaviour
     int botHealth;
     float maxHealth = 100;
 
+    // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
@@ -34,7 +44,12 @@ public class Health : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.V) && healthPlayer > 0) {
-            healthPlayer -= 10;
+            if (healthPlayer <= damage) {
+                healthPlayer = 0;
+            }
+            if (healthPlayer > damage) {
+                healthPlayer -= damage;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.K) && healthPlayer < 100) {
