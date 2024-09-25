@@ -5,23 +5,11 @@ using UnityEngine;
 
 public class ObjectInteractor : MonoBehaviour
 {
-    public GameObject text; 
-
-    async void OnTriggerEnter(Collider other)
+    async void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            text.SetActive(true);
             Debug.Log("display ui");
-        }
-    }
-
-    async void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            text.SetActive(false);
-            Debug.Log("display ui gone");
         }
     }
 }
