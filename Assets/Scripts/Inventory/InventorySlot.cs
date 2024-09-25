@@ -6,21 +6,31 @@ using TMPro;
 
 public class InventorySlot : MonoBehaviour
 {
-    public TMP_Text countTMP;
-    public Image icon;
-    public bool isChestSlot = false;
+    [SerializeField]
+    private TMP_Text countTMP;
+    [SerializeField]
+    private Image icon;
+    [SerializeField]
+    private bool isChestSlot = false;
+    [SerializeField]
+    private bool isTraderSlot = false;
 
-    bool isEmpty = true;
     public Item item;
+    public bool isEmpty = true;
+
+    private InventoryManager inventory;
+    private InventoryUI inventoryUI;
+
+    void Start() {
+        inventory = InventoryManager.instance;
+        inventoryUI = InventoryUI.instance;
+    }
 
     public void ChangeItem(Item newItem, int newCount) {
-        if (item == null) {
         isEmpty = false;
         item = newItem;
         icon.sprite = item.icon;
         icon.enabled = true;
-        }
-
         countTMP.text = newCount.ToString();
     }
 
@@ -30,27 +40,30 @@ public class InventorySlot : MonoBehaviour
             icon.enabled = false;
             countTMP.text = "";
             isEmpty = true;
-        } else
-        {
-            Debug.Log("Slot is already empty");
         }
     }
 
     public void SelectItem() {
         if (isEmpty) {
             Debug.Log("Slot is empty");
-        } else if (InventoryManager.instance.chestID != 0)
+            inventoryUI.Deselect();
+        } else if (isTraderSlot)
         {
-            InventoryManager.instance.CollectItemFromChest(item);
+            TradingManager.instance.InitiateTrade(item);
+            inventoryUI.ChangeDescription(item);
         } else
         {
-            if (InventoryManager.instance.selected == item) {
+            if (inventory.nearTrader && item.isTradable) {
+                TradingManager.instance.UpdateTraderUI();
+            }
+            
+            if (inventory.selected == item) {
                 Debug.Log("Deselecting " + item.itemName);
-                InventoryUI.instance.Deselect();
+                inventoryUI.Deselect();
             } else
             {
                 Debug.Log("Selecting " + item.itemName);
-                InventoryUI.instance.Select(item);
+                inventoryUI.Select(item);
             }
         }
     }
