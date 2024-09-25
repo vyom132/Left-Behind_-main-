@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeleeHitOne : MonoBehaviour
 { 
     private bool targetHit;
+    
 
     void Start()
     {
