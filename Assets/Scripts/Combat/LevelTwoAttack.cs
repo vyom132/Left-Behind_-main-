@@ -7,37 +7,15 @@ public class LevelTwoAttack : MonoBehaviour
 {
     public Animator anim;
     public float timeinterval;
-    public GameObject Particle;
-    public GameObject parent;
-    
-    
+
     async void OnTriggerStay(Collider other)
     {
-       
+        //timeinterval -= Time.deltaTime;
+        //timeinterval = 3;
 
         if (other.gameObject.tag == "Player")
         {
-            
-            anim.Play("lvl2_attack");
-
-           
+            anim.SetBool("in_range", true);
         }
-        
     }
-    //async void OnTriggerEnter(Collider other)
- // {
-
-
-      //  if (other.gameObject.tag == "Player")
-      // {
-
-
-
-         //   await Task.Delay(1200);
-        //    GameObject hit = Instantiate(Particle, parent.transform.position, Quaternion.identity);
-
-
-       // }
-   // }
-
 }

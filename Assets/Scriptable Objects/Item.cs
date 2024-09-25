@@ -5,7 +5,10 @@ public class Item : ScriptableObject
 {
     public string itemName;
     public string description;
+    public string itemInfo = "info";
     public Sprite icon;
-    public bool isTradable;
-    public TradeItems importItems;
+
+    public virtual void Use() {
+        Debug.Log("Using " + itemName);
+    }
 }

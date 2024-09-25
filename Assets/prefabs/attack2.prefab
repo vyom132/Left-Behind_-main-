@@ -127,5 +127,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5953fec9cc3e748a982cbee2cd6ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealthBarChanging: {fileID: 0}
-  Enemydamager: 10

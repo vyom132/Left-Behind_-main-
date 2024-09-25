@@ -8,7 +8,6 @@ TagManager:
   - wall
   - meele
   - enemy
-  - hammer
   layers:
   - Default
   - TransparentFX

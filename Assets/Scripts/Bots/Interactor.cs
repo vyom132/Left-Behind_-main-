@@ -27,7 +27,7 @@ public class Interactor : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E)) {            
             foreach (Collider collider in colliderArray) {
-                if (collider.TryGetComponent(out BotInteract botInteract) && animator.GetBool("isOpen") == false) {
+                if (collider.TryGetComponent(out BotInteraction botInteract) && animator.GetBool("isOpen") == false) {
                     dialouge.canType = true;
                     StartDialouge();
                 }
