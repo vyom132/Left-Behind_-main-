@@ -5,19 +5,17 @@ using UnityEngine;
 
 public class MeleeHitOne : MonoBehaviour
 {
-    public EnemyHealth EnemyHealthBarChanging;
     public float Enemydamager;
 
     private bool targetHit;
-
+    private EnemyHealth EnemyHealthBarChanging;
 
     void Start()
     {
         EnemyHealthBarChanging = EnemyHealth.instance;
-        targetHit = false;
     }
 
-    private async void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "enemy")
         {
@@ -25,15 +23,14 @@ public class MeleeHitOne : MonoBehaviour
             EnemyHealthBarChanging.Enemydamage = Enemydamager;
             Debug.Log("wall got it");
         }
+    }
 
-
-        async void OnTriggerExit(Collider other)
+    async void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "enemy")
         {
-            if (other.gameObject.tag == "enemy")
-            {
-                EnemyHealthBarChanging.EnemytakingDmg = false;
-                Debug.Log("enemny stopped got it3rd");
-            }
+            EnemyHealthBarChanging.EnemytakingDmg = false;
+            Debug.Log("enemny stopped got it3rd");
         }
     }
 }

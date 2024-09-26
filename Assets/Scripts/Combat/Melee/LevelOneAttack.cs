@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class LevelOneAttack : MonoBehaviour
 {
-
-    public Health HealthBarChanging;
     public float damager;
+
+    private Health HealthBarChanging;
 
     void Start()
     {
@@ -24,17 +24,14 @@ public class LevelOneAttack : MonoBehaviour
             //Debug.Log(gameObject.name);
             //Debug.Log("player got hit");
         }
-
-
     }
-    void OnTriggeExit(Collider other)
+
+    void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             HealthBarChanging.takingDmg = false;
             //Debug.Log("player stopped got hit");
         }
-
-
     }
 }

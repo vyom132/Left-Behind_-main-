@@ -5,74 +5,66 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-    public GameObject attack1;
-    public GameObject meelee1;
-    public GameObject attack2;
-    public GameObject meelee2;
-    public GameObject attack3;
-    public GameObject meelee3;
-    public Animator anim;
+    [SerializeField]
+    private List<GameObject> attackFabs;
+    [SerializeField]
+    private List<GameObject> attackPos;
+    [SerializeField]
+    private List<string> animSetBools;
+    [SerializeField]
+    private List<int> attackAnimTimes;
+    [SerializeField]
+    private List<int> attackWindowTimes;
+    [SerializeField]
+    private Animator anim;
 
-    private bool at1D;
-    private bool at2D;
-    private bool at3D;
+    [SerializeField]
+    private List<bool> attackAnims;
+    [SerializeField]
+    private List<bool> attackWindows;
+    [SerializeField]
+    private List<GameObject> attackHits;
+    [SerializeField]
+    private bool isAttacking;
 
     void Start()
     {
-        at1D= false;
-        at2D= false;
-        at3D= false;
+        attackAnims = new List<bool> {false, false, false};
+        attackWindows = new List<bool> {false, false, false};
+        attackHits = new List<GameObject> {null, null, null};
+        isAttacking = false;
+
     }
 
-    async void Update()
+    private async void Attack(int attackNum) {
+        Debug.Log("Performing attack " + attackNum);
+        attackHits[attackNum] = Instantiate(attackFabs[attackNum], attackPos[attackNum].transform.position, attackPos[attackNum].transform.rotation);
+        attackAnims[attackNum] = true;
+        anim.SetBool(animSetBools[attackNum], true);
+
+        await Task.Delay(attackAnimTimes[attackNum]);
+        attackWindows[attackNum] = true;
+        await Task.Delay(attackWindowTimes[attackNum]);
+
+        Destroy(attackHits[attackNum]);
+        attackWindows[attackNum] = false;
+        attackAnims[attackNum] = false;
+        anim.SetBool(animSetBools[attackNum], false);
+    }
+
+    void Update()
     {
-        if (Input.GetMouseButtonDown(0) & at1D == false & at3D == false & at2D == false)
-        {
-            GameObject at1 = Instantiate(attack1, meelee1.transform.position, meelee1.transform.rotation);
-            
-            at1D = true;
-            anim.SetBool("at1", true);
-            await Task.Delay(1500);
-            
-            Destroy(at1);
-            at1D = false;
-        }
-
-        if (at1D & Input.GetMouseButtonDown(0) & at2D == false) 
-        {
-            GameObject at2 = Instantiate(attack2, meelee2.transform.position, meelee2.transform.rotation);
-            at2D = true;
-            anim.SetBool("at2", true);
-            await Task.Delay(1500);
-            
-            Destroy(at2);
-            at2D = false;
-        }
-
-        if (at2D & at1D & Input.GetMouseButtonDown(0))
-        {
-            GameObject at3 = Instantiate(attack3, meelee3.transform.position, meelee3.transform.rotation);
-            at3D = true;
-            anim.SetBool("at3", true);
-            await Task.Delay(500);
-
-            Destroy(at3);
-            at3D = false;
-        }
-       
-        if (at1D!)
-        {
-            anim.SetBool("at1", false);
-        }
-
-        if (at2D!)
-        {
-            anim.SetBool("at2", false);
-        }
-
-        if (at3D!)
-        {
-            anim.SetBool("at3", false);
+        if (Input.GetMouseButtonDown(0)) {
+            if (!attackAnims.Contains(true)) {
+                Attack(0);
+            } else
+            {
+                for (int i = 1; i < attackWindows.Count; i++) {
+                    if (attackWindows[i - 1] && !attackAnims[i]) {
+                        Attack(i);
+                    }
+                }
+            }
         }
     }
 }

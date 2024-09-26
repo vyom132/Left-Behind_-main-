@@ -10,34 +10,21 @@ public class LevelTwoAttack : MonoBehaviour
     public GameObject Particle;
     public GameObject parent;
     
-    
     async void OnTriggerStay(Collider other)
     {
-       
-
         if (other.gameObject.tag == "Player")
         {
-            
             anim.Play("lvl2_attack");
-
-           
         }
         
     }
-    //async void OnTriggerEnter(Collider other)
- // {
 
-
-      //  if (other.gameObject.tag == "Player")
-      // {
-
-
-
-         //   await Task.Delay(1200);
-        //    GameObject hit = Instantiate(Particle, parent.transform.position, Quaternion.identity);
-
-
-       // }
-   // }
-
+//     async void OnTriggerEnter(Collider other)
+//     {
+//         if (other.gameObject.tag == "Player")
+//         {
+//             await Task.Delay(1200);
+//             GameObject hit = Instantiate(Particle, parent.transform.position, Quaternion.identity);
+//         }
+//    }
 }

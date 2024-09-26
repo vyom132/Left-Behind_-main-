@@ -9,39 +9,34 @@ public class Health : MonoBehaviour
 {
     public static Health instance; void Awake() { instance = this; }
 
-    // public Text healthText;
-    public Image healthBar;
-
-    public TMP_Text playerkahealth;
-
-    public Image PlayerHealth;
-
     public float damage;
-    public float healthnipenchurakojja = 30;
 
-    float lerpSpeed = 5f;    
+    [SerializeField]
+    private Image healthBar;
+    [SerializeField]
+    private TMP_Text playerkahealth;
+    [SerializeField]
+    private Image PlayerHealth;
+    [SerializeField]
+    private float healthnipenchurakojja = 30;
+    [SerializeField]
+    private float maxHealth = 100;
+    [SerializeField]
+    private float lerpSpeed = 5f;
 
-    float health;
-
-    float healthPlayer;
-
-    int botHealth;
-
-    float maxHealth = 100;
-
+    private float health;
+    private float healthPlayer;
+    private int botHealth;
     public bool takingDmg = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
         healthPlayer = maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if (health > 0) {
             health -= 10 * Time.deltaTime;
             botHealth -= 10;
@@ -76,14 +71,11 @@ public class Health : MonoBehaviour
             healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, health/100, lerpSpeed * Time.deltaTime);   
         }
 
-        healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, health/100, lerpSpeed * Time.deltaTime);   
+        healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, health/100, lerpSpeed * Time.deltaTime);
         // healthBar.fillAmount = health/100;
         PlayerHealth.fillAmount = Mathf.Lerp(PlayerHealth.fillAmount, healthPlayer/100, lerpSpeed * Time.deltaTime);
-        
 
-        
         playerkahealth.text = healthPlayer.ToString();
         // botkaenergyhealthbar.text = botHealth.ToString();
-
     }
 }
