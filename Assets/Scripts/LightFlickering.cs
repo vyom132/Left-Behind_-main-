@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class LightFlickering : MonoBehaviour
 {
-    public Light light;
+    [SerializeField]
+    private Light light;
 
     async void Start()
     {

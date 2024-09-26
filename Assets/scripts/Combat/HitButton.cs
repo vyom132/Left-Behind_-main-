@@ -5,16 +5,19 @@ using UnityEngine;
 
 public class HitButton : MonoBehaviour
 {
-    public GameObject Particle;
-    public GameObject particle2;
+    [SerializeField]
+    private GameObject particleOne;
+    [SerializeField]
+    public GameObject particleTwo;
+    [SerializeField]
     public GameObject parent;
     
     async void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "hammer")
         {  
-            GameObject hitOne = Instantiate(Particle, parent.transform.position, Quaternion.identity);
-            GameObject hitTwo = Instantiate(particle2, parent.transform.position, parent.transform.rotation);
+            GameObject hitOne = Instantiate(particleOne, parent.transform.position, Quaternion.identity);
+            GameObject hitTwo = Instantiate(particleTwo, parent.transform.position, parent.transform.rotation);
         }
     }
 }

@@ -5,43 +5,44 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public static GameObject playerObject;
+
     [SerializeField]
     float mouseSens = 100f;
-
     [SerializeField]
     float speed = 12f;
+    [SerializeField]
     float fastspeed = 20f;
-
     [SerializeField]
     float gravity = -9.8f;
+    [SerializeField]
     float jumpforce = 10f;
 
-    CharacterController controller;
-    public Rigidbody rb;
-    Transform player;
-    GameObject camera;
-    Transform cameraTransform;
-    GameObject flashlight;
-    Light lightsource;
-    bool onground;
+    [SerializeField]
+    private Transform cameraTransform;
+    [SerializeField]
+    private Light lightsource;
+    private CharacterController controller;
+    private Rigidbody rb;
+    private Transform player;
 
-    Vector3 moveVel;
-    Vector3 turnVel;
-    float x;
-    float z;
-    float mouseX;
-    float mouseY;
-    float xRotation = 0f;
-    bool active = true;
-    bool isOn = true;
+    private bool onground;
+    private Vector3 moveVel;
+    private Vector3 turnVel;
+    private float x;
+    private float z;
+    private float mouseX;
+    private float mouseY;
+    private float xRotation = 0f;
+    private bool active = true;
+    private bool isOn = true;
 
     void Awake()
     {
-        camera = GameObject.Find("Camera");
-        cameraTransform = camera.GetComponent<Transform>();
-        flashlight = GameObject.Find("Flashlight");
-        lightsource = flashlight.GetComponent<Light>();
+        playerObject = gameObject;
+
         controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
         player = GetComponent<Transform>();
     }
 

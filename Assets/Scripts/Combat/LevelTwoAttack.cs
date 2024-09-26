@@ -6,9 +6,9 @@ using UnityEngine;
 public class LevelTwoAttack : MonoBehaviour
 {
     public Animator anim;
-    public float timeinterval;
-    public GameObject Particle;
-    public GameObject parent;
+    // public float timeinterval;
+    // public GameObject Particle;
+    // public GameObject parent;
     
     async void OnTriggerStay(Collider other)
     {
@@ -16,7 +16,6 @@ public class LevelTwoAttack : MonoBehaviour
         {
             anim.Play("lvl2_attack");
         }
-        
     }
 
 //     async void OnTriggerEnter(Collider other)

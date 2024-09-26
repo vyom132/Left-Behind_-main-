@@ -6,9 +6,12 @@ using UnityEngine;
 
 public class SpawnAttackingLevelOne : MonoBehaviour
 {
-    public GameObject attack;
-    public float InstantiationTimer;
-    public GameObject parent;
+    [SerializeField]
+    private GameObject attack;
+    [SerializeField]
+    private float InstantiationTimer;
+    [SerializeField]
+    private GameObject parent;
 
     async void Update()
     {
