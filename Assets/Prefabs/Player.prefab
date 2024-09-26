@@ -136,8 +136,8 @@ GameObject:
   - component: {fileID: 1345733770157283598}
   - component: {fileID: 1345733770157283586}
   - component: {fileID: 1345733770157283587}
-  - component: {fileID: 1345733770157283584}
   - component: {fileID: 1345733770157283585}
+  - component: {fileID: 1648055852652017035}
   m_Layer: 0
   m_Name: sword_animation
   m_TagString: Untagged
@@ -213,36 +213,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1345733770157283584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345733770157283599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1632fdc1327b71047993a923c7049960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackFabs:
-  - {fileID: 780219763695262726, guid: b86e660c89d77154888e73cb136c0d45, type: 3}
-  - {fileID: 2760232212926561670, guid: 7056809b3816ae74488f78efc81514a3, type: 3}
-  - {fileID: 1382910950228682204, guid: d1c7f57eb82eef949b8b0c1892306fe6, type: 3}
-  attackPos:
-  - {fileID: 1345733768478982680}
-  - {fileID: 1345733768485199286}
-  - {fileID: 1345733769110102527}
-  animSetBools:
-  - attack1
-  - attack2
-  - attack3
-  attackAnimTimes: 900100009001000090010000
-  attackWindowTimes: 4c0400004c0400004c040000
-  anim: {fileID: 1345733770157283585}
-  attackAnims: 
-  attackWindows: 
-  attackHits: []
 --- !u!95 &1345733770157283585
 Animator:
   serializedVersion: 5
@@ -264,6 +234,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1648055852652017035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345733770157283599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da70c65a624f384ea8b0ec6122b5c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackFabs:
+  - {fileID: 780219763695262726, guid: b86e660c89d77154888e73cb136c0d45, type: 3}
+  - {fileID: 2760232212926561670, guid: 7056809b3816ae74488f78efc81514a3, type: 3}
+  - {fileID: 1382910950228682204, guid: d1c7f57eb82eef949b8b0c1892306fe6, type: 3}
+  attackPos:
+  - {fileID: 1345733768478982680}
+  - {fileID: 1345733768485199286}
+  - {fileID: 1345733769110102527}
+  animSetBools:
+  - attack1
+  - attack2
+  - attack3
+  attackAnimTimes: 900100009001000090010000
+  attackWindowTimes: 4c0400004c04000000000000
+  anim: {fileID: 1345733770157283585}
+  attackAnims: 
+  attackWindows: 
+  attackHits: []
 --- !u!1 &1345733770438033506
 GameObject:
   m_ObjectHideFlags: 0
