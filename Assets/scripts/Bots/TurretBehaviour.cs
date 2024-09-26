@@ -107,7 +107,7 @@ public class TurretBehaviour : MonoBehaviour
         Debug.Log("Target Rotation: " + targetRotation.eulerAngles);
 
         // Smoothly rotate towards the player
-        transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
     }
     }
 }
