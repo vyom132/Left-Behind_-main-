@@ -7,8 +7,8 @@ TagManager:
   - Ground
   - wall
   - meele
-  - enemy
   - hammer
+  - Enemy
   layers:
   - Default
   - TransparentFX

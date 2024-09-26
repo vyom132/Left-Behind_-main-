@@ -5,13 +5,8 @@ using UnityEngine.AI;
     
 public class NavAI : MonoBehaviour
 {
-    public NavMeshAgent ai;
-    public Transform player;
-    Vector3 dest;
-
     void Update()
     {
-        dest = player.position;
-        ai.destination = dest;
+        GetComponent<NavMeshAgent>().destination = PlayerManager.playerObject.transform.position;
     }
 }

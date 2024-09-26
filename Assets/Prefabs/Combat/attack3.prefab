@@ -124,8 +124,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1382910950228682204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 815095adaf74d0447ba8990c67a76b49, type: 3}
+  m_Script: {fileID: 11500000, guid: bb08a44de165023489c4feea1f427e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealthBarChanging: {fileID: 0}
-  Enemydamager: 10
+  damage: 40
+  hitNumber: 3
