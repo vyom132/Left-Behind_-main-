@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da70c65a624f384ea8b0ec6122b5c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inCombat: 0
   attackFabs:
   - {fileID: 780219763695262726, guid: b86e660c89d77154888e73cb136c0d45, type: 3}
   - {fileID: 2760232212926561670, guid: 7056809b3816ae74488f78efc81514a3, type: 3}
@@ -333,7 +334,7 @@ Transform:
   - {fileID: 4578227349825583607}
   - {fileID: 1345733770438033509}
   m_Father: {fileID: 4578227350203789657}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &4578227349517784571
 Camera:
@@ -571,6 +572,7 @@ Transform:
   m_LocalScale: {x: 2.3375185, y: 2.2, z: 2.3375185}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5159965633507290448}
   - {fileID: 4578227349517784572}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -653,4 +655,34 @@ MonoBehaviour:
   gravity: -9.8
   jumpforce: 10
   cameraTransform: {fileID: 4578227349517784572}
-  lightsource: {fileID: 4578227349825583368}
+--- !u!1 &5310791690520558406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5159965633507290448}
+  m_Layer: 0
+  m_Name: Destination
+  m_TagString: Brijesh
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5159965633507290448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5310791690520558406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -16.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4578227350203789657}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

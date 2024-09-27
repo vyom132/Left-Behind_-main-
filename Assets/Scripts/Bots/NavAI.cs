@@ -5,8 +5,26 @@ using UnityEngine.AI;
     
 public class NavAI : MonoBehaviour
 {
+    [SerializeField]
+    private bool isBot;
+    private GameObject player;
+    private GameObject dest;
+    private NavMeshAgent nav;
+
+    void Start()
+    {
+        dest = GameObject.FindWithTag("Brijesh");
+        player = PlayerManager.playerObject;
+        nav = GetComponent<NavMeshAgent>();
+    }
+
     void Update()
     {
-        GetComponent<NavMeshAgent>().destination = PlayerManager.playerObject.transform.position;
+        if (isBot && MeleeAttackManager.instance.inCombat) {
+            nav.destination = dest.transform.position;
+        } else
+        {
+            nav.destination = player.transform.position;
+        }
     }
 }

@@ -61,6 +61,9 @@ public class PlayerHealthManager : MonoBehaviour
         {
             health = maxHealth;
         }
+
+        if (damage >= 0)
+        MeleeAttackManager.instance.inCombat = true;
     }
 
     public void RegenerateEnergy(float damage) {

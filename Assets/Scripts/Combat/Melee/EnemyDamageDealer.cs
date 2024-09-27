@@ -8,11 +8,26 @@ public class EnemyDamageDealer : MonoBehaviour
 {
     [SerializeField]
     private float damage;
+    [SerializeField]
+    private float cooldown = 1.5f;
+    private float elapsed;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player") {
             PlayerHealthManager.instance.TakeDamage(damage);
+            elapsed = 0f;
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player") {
+            elapsed += Time.deltaTime;
+            if (elapsed >= cooldown) {
+                elapsed = 0f;
+                PlayerHealthManager.instance.TakeDamage(damage);
+            }
         }
     }
 }

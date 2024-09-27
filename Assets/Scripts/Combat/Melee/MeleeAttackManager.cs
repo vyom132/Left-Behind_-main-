@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class MeleeAttackManager : MonoBehaviour
 {
+    public static MeleeAttackManager instance; void Awake() { instance = this; }
+
+    public bool inCombat;
+
     [SerializeField]
     private List<GameObject> attackFabs;
     [SerializeField]
@@ -31,9 +35,12 @@ public class MeleeAttackManager : MonoBehaviour
         attackWindows = new List<bool> {false, false, false};
         attackHits = new List<GameObject> {null, null, null};
 
+        inCombat = false;
     }
 
     private async void Attack(int attackNum) {
+        inCombat = true;
+
         Debug.Log("Performing attack " + attackNum);
         attackHits[attackNum] = Instantiate(attackFabs[attackNum], attackPos[attackNum].transform.position, attackPos[attackNum].transform.rotation);
         attackAnims[attackNum] = true;
@@ -47,6 +54,10 @@ public class MeleeAttackManager : MonoBehaviour
         attackWindows[attackNum] = false;
         attackAnims[attackNum] = false;
         anim.SetBool(animSetBools[attackNum], false);
+
+        await Task.Delay(3000);
+        Debug.Log("Turned off combat");
+        inCombat = false;
     }
 
     void Update()
