@@ -5,14 +5,25 @@ using UnityEngine;
 
 public class ObjectInteractor : MonoBehaviour
 {
-    public GameObject text; 
+    [SerializeField]
+    private GameObject text;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E)) {
+            text.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            text.SetActive(true);
+        }
+    }
 
     async void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             text.SetActive(true);
-            Debug.Log("display ui");
         }
     }
 
@@ -21,7 +32,6 @@ public class ObjectInteractor : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             text.SetActive(false);
-            Debug.Log("display ui gone");
         }
     }
 }

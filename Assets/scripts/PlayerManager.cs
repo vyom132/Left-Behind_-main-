@@ -20,8 +20,8 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField]
     private Transform cameraTransform;
-    [SerializeField]
-    private Light lightsource;
+    // [SerializeField]
+    // private Light lightsource;
     private CharacterController controller;
     private Rigidbody rb;
     private Transform player;
@@ -84,22 +84,22 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         //flashlight
-        if (lightsource.intensity > 0)
-        {
-            isOn = true;
-        }
-        if (lightsource.intensity <= 0)
-        {
-            isOn = false;
-        }
-        if (Input.GetKeyDown(KeyCode.F) & isOn == true)
-        {
-            lightsource.intensity = 0f;
-        }
-        if (Input.GetKeyDown(KeyCode.F) & isOn == false)
-        {
-            lightsource.intensity = 1.5f;
-        }
+        // if (lightsource.intensity > 0)
+        // {
+        //     isOn = true;
+        // }
+        // if (lightsource.intensity <= 0)
+        // {
+        //     isOn = false;
+        // }
+        // if (Input.GetKeyDown(KeyCode.F) & isOn == true)
+        // {
+        //     lightsource.intensity = 0f;
+        // }
+        // if (Input.GetKeyDown(KeyCode.F) & isOn == false)
+        // {
+        //     lightsource.intensity = 1.5f;
+        // }
     }
 
     public void ChangeState(bool value)

@@ -5,11 +5,9 @@ using UnityEngine;
 
 public class LevelTwoAttack : MonoBehaviour
 {
-    public Animator anim;
-    // public float timeinterval;
-    // public GameObject Particle;
-    // public GameObject parent;
-    
+    [SerializeField]
+    private Animator anim;
+
     async void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -17,13 +15,4 @@ public class LevelTwoAttack : MonoBehaviour
             anim.Play("lvl2_attack");
         }
     }
-
-//     async void OnTriggerEnter(Collider other)
-//     {
-//         if (other.gameObject.tag == "Player")
-//         {
-//             await Task.Delay(1200);
-//             GameObject hit = Instantiate(Particle, parent.transform.position, Quaternion.identity);
-//         }
-//    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LookToPlayer : MonoBehaviour
 {
-    Camera mainCam;
+    private Camera mainCam;
 
     void Start()
     {

@@ -6,8 +6,6 @@ public class ChestInteraction : MonoBehaviour
 {
     [SerializeField]
     private int chestID; // Starts from 1
-    [SerializeField]
-    private Transform player;
 
     void OnTriggerEnter(Collider collider) {
         if (collider.CompareTag("Player")) {

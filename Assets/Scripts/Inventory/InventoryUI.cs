@@ -25,6 +25,8 @@ public class InventoryUI : MonoBehaviour
     [SerializeField]
     private GameObject chestPanel;
     [SerializeField]
+    private GameObject tradePanel;
+    [SerializeField]
     private Button collectButton;
     [SerializeField]
     private List<UpgradingUI> upgradingUIs;
@@ -67,7 +69,7 @@ public class InventoryUI : MonoBehaviour
             Cursor.visible = true;
             inventory.selected = null;
 
-            TradingManager.instance.UpdateTraderUI();
+            CallUpdateTraderUI();
         } else
         {
             GetComponent<Canvas>().enabled = false;
@@ -89,6 +91,16 @@ public class InventoryUI : MonoBehaviour
         {
             inventoryPanel.SetActive(true);
             upgradingPanel.SetActive(false);
+        }
+    }
+
+    public void CallUpdateTraderUI() {
+        if (inventory.nearTrader) {
+            tradePanel.SetActive(true);
+            TradingManager.instance.UpdateTraderUI();
+        } else
+        {
+            tradePanel.SetActive(false);
         }
     }
 
@@ -130,17 +142,13 @@ public class InventoryUI : MonoBehaviour
     public void Select(Item item) {
         inventory.selected = item;
         ChangeDescription(item);
-
-        if (inventory.nearTrader)
-        TradingManager.instance.UpdateTraderUI();
+        CallUpdateTraderUI();
     }
 
     public void Deselect() {
         inventory.selected = null;
         ChangeDescription(null);
-
-        if (inventory.nearTrader)
-        TradingManager.instance.UpdateTraderUI();
+        CallUpdateTraderUI();
     }
 
     public void ChangeDescription(Item item) {

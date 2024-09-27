@@ -627,7 +627,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8103803910554031079, guid: 5d2bc157f9b704a409d042a917ea540b, type: 3}
       propertyPath: m_Name
-      value: chest2(trigger)
+      value: Common Chest (0)
       objectReference: {fileID: 0}
     - target: {fileID: 8880445441490995549, guid: 5d2bc157f9b704a409d042a917ea540b, type: 3}
       propertyPath: m_RootOrder
@@ -694,9 +694,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5889656300353262442}
     m_Modifications:
+    - target: {fileID: 2760420622977999030, guid: 5d2bc157f9b704a409d042a917ea540b, type: 3}
+      propertyPath: chestID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8103803910554031079, guid: 5d2bc157f9b704a409d042a917ea540b, type: 3}
       propertyPath: m_Name
-      value: chest2(trigger) (1)
+      value: Common Chest (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8880445441490995549, guid: 5d2bc157f9b704a409d042a917ea540b, type: 3}
       propertyPath: m_RootOrder
@@ -1488,6 +1492,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5889656300353262442}
     m_Modifications:
+    - target: {fileID: 1597812892080569983, guid: d041a903388653b48ac7c4acec548270, type: 3}
+      propertyPath: chestID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2478272345824320725, guid: d041a903388653b48ac7c4acec548270, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1546,7 +1554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2967669010926667375, guid: d041a903388653b48ac7c4acec548270, type: 3}
       propertyPath: m_Name
-      value: rarechest(trigger) (1)
+      value: Rare Chest (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d041a903388653b48ac7c4acec548270, type: 3}
@@ -1557,6 +1565,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5889656300353262442}
     m_Modifications:
+    - target: {fileID: 1597812892080569983, guid: d041a903388653b48ac7c4acec548270, type: 3}
+      propertyPath: chestID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2478272345824320725, guid: d041a903388653b48ac7c4acec548270, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1615,7 +1627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2967669010926667375, guid: d041a903388653b48ac7c4acec548270, type: 3}
       propertyPath: m_Name
-      value: rarechest(trigger)
+      value: Rare Chest (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d041a903388653b48ac7c4acec548270, type: 3}
