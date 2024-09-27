@@ -4,31 +4,30 @@ using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
-public class Dialouge : MonoBehaviour
+public class Dialogue : MonoBehaviour
 {
-    public static Dialouge instance; void Awake() { instance = this; }
+    public static Dialogue instance; void Awake() { instance = this; }
     
     public bool isDialougeEnd; 
-
-    public Text textComp;
-    public List<string> lines = new List<string>();
-    public float textSpeed;
-
     public bool canType;
 
+    [SerializeField]
+    private Text textComp;
+    [SerializeField]
+    private DialogueTexts dialogueTexts;
+    [SerializeField]
+    private float textSpeed;
+
     private int index;
+    private List<string> lines = new List<string>();
 
     void Start()
     {
-        textComp.text = "";
-        lines.Clear();
-        lines.Add("Add you own Dialouge1");
-        lines.Add("Add you own Dialouge2");
-        lines.Add("Add you own Dialouge3");
-
-
-
+        textComp.text = string.Empty;
         canType = false;
+        lines.Clear();
+
+        UpdateDialogue(dialogueTexts.GetDialogues());
     }
 
     void Update()
@@ -44,6 +43,13 @@ public class Dialouge : MonoBehaviour
         }
     }
 
+    public void UpdateDialogue(List<string> dialogues) {
+        lines.Clear();
+        foreach (string dialogue in dialogues) {
+            lines.Add(dialogue);
+        }
+    }
+
     public void MoveToNextLine() {
         Debug.Log("hi");
         if (textComp.text == lines[index]) {
@@ -56,6 +62,8 @@ public class Dialouge : MonoBehaviour
     }
 
     public void StartTyping() {
+        UpdateDialogue(dialogueTexts.GetDialogues());
+        dialogueTexts.exhausted = true;
         index = 0;
         StartCoroutine(TypeLine());
     }

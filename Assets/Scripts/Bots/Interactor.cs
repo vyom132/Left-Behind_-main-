@@ -6,16 +6,19 @@ using UnityEngine;
 public class Interactor : MonoBehaviour
 {
     // public GameObject Interact;
-    public Animator animator;
 
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
     private float interactRange = 2f;
-    private Dialouge dialouge;
+
     private bool isDialougeRunning = false;
     private bool rand = false;
+    private Dialogue dialouge;
 
     void Start()
     {
-        dialouge = Dialouge.instance;
+        dialouge = Dialogue.instance;
         // Interact.SetActive(false);
     }
 
@@ -23,7 +26,7 @@ public class Interactor : MonoBehaviour
     {
         Collider[] colliderArray = Physics.OverlapSphere(transform.position,  interactRange);
 
-        if (Input.GetMouseButtonDown(1)) {            
+        if (Input.GetKeyDown(KeyCode.R)) {            
             foreach (Collider collider in colliderArray) {
                 if (collider.TryGetComponent(out BotInteract botInteract) && animator.GetBool("isOpen") == false) {
                     dialouge.canType = true;
