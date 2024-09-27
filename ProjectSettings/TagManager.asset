@@ -9,6 +9,8 @@ TagManager:
   - meele
   - hammer
   - Enemy
+  - enemy
+  - Brijesh
   layers:
   - Default
   - TransparentFX

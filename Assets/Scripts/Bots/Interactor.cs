@@ -5,27 +5,28 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
-    private Dialouge dialouge;
+    // public GameObject Interact;
 
-    public GameObject Interact;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private float interactRange = 2f;
 
-    public Animator animator;
-    float interactRange = 2f;
-
-    bool isDialougeRunning = false;
-    bool rand = false;
+    private bool isDialougeRunning = false;
+    private bool rand = false;
+    private Dialogue dialouge;
 
     void Start()
     {
-        dialouge = Dialouge.instance;
-        Interact.SetActive(false);
+        dialouge = Dialogue.instance;
+        // Interact.SetActive(false);
     }
 
     void Update()
     {
         Collider[] colliderArray = Physics.OverlapSphere(transform.position,  interactRange);
 
-        if (Input.GetKeyDown(KeyCode.E)) {            
+        if (Input.GetKeyDown(KeyCode.R)) {            
             foreach (Collider collider in colliderArray) {
                 if (collider.TryGetComponent(out BotInteract botInteract) && animator.GetBool("isOpen") == false) {
                     dialouge.canType = true;
@@ -34,26 +35,6 @@ public class Interactor : MonoBehaviour
             }
         }
         
-        foreach (Collider collider in colliderArray) {
-            // while (collider.TryGetComponent(out BotInteract botInteract)) {
-            //     Interact.SetActive(true);
-            // } 
-        } 
-
-        // foreach (Collider collider1 in colliderArray) {
-        //     if (collider1.TryGetComponent(out BotInteract botInteract)) {
-        //         Interact.SetActive(true);
-        //         Debug.Log("show");
-        //     } 
-            // else {
-            //     Interact.SetActive(false);
-            // }
-            // else if (!collider1.TryGetComponent(out BotInteract botInteract1)) {
-            //     Interact.SetActive(false);
-            //     Debug.Log("dont show");
-            // }
-        // }
-
         if (dialouge.isDialougeEnd == true) {
             animator.SetBool("isOpen", false);  
             dialouge.isDialougeEnd =  false;
@@ -64,6 +45,5 @@ public class Interactor : MonoBehaviour
         animator.SetBool("isOpen",  true);
         dialouge.isDialougeEnd = false;
         dialouge.StartTyping();
-        // set it to false after ur done ra niggesh 
     }
 }
