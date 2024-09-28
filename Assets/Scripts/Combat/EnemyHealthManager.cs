@@ -16,6 +16,10 @@ public class EnemyHealthManager : MonoBehaviour
     private float maxHealth;
     [SerializeField]
     private float lerpSpeed = 2f;
+    [SerializeField]
+    private GameObject particle;
+    [SerializeField]
+    private GameObject parent;
 
     public float health;
 
@@ -33,6 +37,7 @@ public class EnemyHealthManager : MonoBehaviour
         health -= damage;
         if (health <= 0) {
             health = 0;
+            Instantiate(particle, parent.transform.position, Quaternion.identity);
             Destroy(objectToDestroy);
         }
         Debug.Log("Enemy got hit with damage " + damage);
