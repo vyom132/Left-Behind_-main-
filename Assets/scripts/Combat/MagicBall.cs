@@ -24,6 +24,7 @@ public class MagicBall : MonoBehaviour
 
 
     public GameObject magicBall;
+    public Animator anim;
 
 
     // Start is called before the first frame update
@@ -39,12 +40,13 @@ public class MagicBall : MonoBehaviour
         // Update the timer based on time passed
 
         // Check if the player presses the shoot button (P key) and can shoot
-        if (Input.GetMouseButtonDown(1) && readyToThrow)
+        if (Input.GetMouseButtonDown(1) && readyToThrow && MeleeAttackManager.instance.isAttacking==false)
         {
             ShootTheBall();
-            // Reset the timer after shooting
+    // Reset the timer after shooting
             await Task.Delay(5000);
             readyToThrow = true;
+            
         }
 
         

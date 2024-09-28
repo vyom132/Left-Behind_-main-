@@ -29,6 +29,8 @@ public class MeleeAttackManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> attackHits;
 
+    public bool isAttacking;
+
     void Start()
     {
         attackAnims = new List<bool> {false, false, false};
@@ -39,8 +41,8 @@ public class MeleeAttackManager : MonoBehaviour
     }
 
     private async void Attack(int attackNum) {
-        inCombat = true;
-
+        inCombat =true;
+        isAttacking= true;
         Debug.Log("Performing attack " + attackNum);
         attackHits[attackNum] = Instantiate(attackFabs[attackNum], attackPos[attackNum].transform.position, attackPos[attackNum].transform.rotation);
         attackAnims[attackNum] = true;
@@ -54,6 +56,7 @@ public class MeleeAttackManager : MonoBehaviour
         attackWindows[attackNum] = false;
         attackAnims[attackNum] = false;
         anim.SetBool(animSetBools[attackNum], false);
+        isAttacking=false;
 
         await Task.Delay(10000);
         inCombat = false;

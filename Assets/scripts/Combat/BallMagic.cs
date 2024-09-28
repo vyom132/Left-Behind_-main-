@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using static UnityEngine.ParticleSystem;
 
 public class BallMagic : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class BallMagic : MonoBehaviour
 
     public float damageRadius = 5f;
     public float damage;
+    public GameObject particle;
+    public GameObject parent;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,7 @@ public class BallMagic : MonoBehaviour
     void OnTriggerEnter(Collider other)
     { 
         SplashItUp();
+        Instantiate(particle, parent.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

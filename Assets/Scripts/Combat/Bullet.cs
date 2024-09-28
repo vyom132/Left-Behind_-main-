@@ -9,7 +9,8 @@ public class Bullet : MonoBehaviour
     private float lifeTime = 5f;
     [SerializeField]
     private float damage = 20;
-
+    public GameObject particle;
+    public GameObject parent;
     void Start()
     {
         Destroy(gameObject, lifeTime);
@@ -24,7 +25,9 @@ public class Bullet : MonoBehaviour
             // Handle player hit logic here
             Debug.Log("Player hit!");
             PlayerHealthManager.instance.TakeDamage(damage);
+            Instantiate(particle, parent.transform.position, Quaternion.identity);
             Destroy(gameObject);
+            
         }
     }
 }

@@ -8,6 +8,8 @@ public class groundsmash : MonoBehaviour
     public float damageRadius;
     public float damage;
     bool readyTosmash;
+    public GameObject grounds;
+    public GameObject groundsl;
     // Start is called before the first frame update
     void GroundSmash()
     {
@@ -37,6 +39,7 @@ public class groundsmash : MonoBehaviour
             
             
             GroundSmash();
+            Instantiate(grounds, groundsl.transform.position, Quaternion.identity);
             await Task.Delay(5000);
             readyTosmash = true;
         }
