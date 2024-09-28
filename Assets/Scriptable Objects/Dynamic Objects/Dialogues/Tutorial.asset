@@ -12,6 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f30fc967c70e194fa75235dae445922, type: 3}
   m_Name: Tutorial
   m_EditorClassIdentifier: 
-  dialogues: []
-  fillers: []
-  exhausted: 0
+  dialogues:
+  - I know you have many questions.
+  - All will be answered soon.
+  - But right now, I need you to kill those robots and get me their energy!
+  - You can press left click to swing your saber. Your health is visible in the top
+    right corner, along with my energy bar.
+  - "If you ever are low on health, press Q and I will heal you by using up some
+    of my energy. Don\u2019t die!"
+  fillers:
+  - Thank you.
+  - Right, I forgot to tell you.
+  - "Name\u2019s Max by the way."
+  - I have a limited amount of energy, so I constantly need energy to keep living.
+  - "Now, go into that portal to reach the hub and I\u2019ll tell you more."
+  exhausted: 1
