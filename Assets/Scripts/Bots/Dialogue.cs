@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
+using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
@@ -12,14 +13,18 @@ public class Dialogue : MonoBehaviour
     public bool canType;
 
     [SerializeField]
-    private Text textComp;
+    private TMP_Text textComp;
     [SerializeField]
     private DialogueTexts dialogueTexts;
     [SerializeField]
     private float textSpeed;
+    [SerializeField]
+    private bool isTutorial;
+    [SerializeField]
+    private GameObject enemy;
 
     private int index;
-    private List<string> lines = new List<string>();
+    public List<string> lines = new List<string>();
 
     void Start()
     {
@@ -62,7 +67,9 @@ public class Dialogue : MonoBehaviour
     }
 
     public void StartTyping() {
+        if (!isTutorial)
         UpdateDialogue(dialogueTexts.GetDialogues());
+
         dialogueTexts.exhausted = true;
         index = 0;
         StartCoroutine(TypeLine());
@@ -84,9 +91,11 @@ public class Dialogue : MonoBehaviour
         } else
         {
             isDialougeEnd = true;
-            Debug.Log("saasd");
             canType = false;
             textComp.text = string.Empty;
+            if (isTutorial) {
+                enemy.SetActive(true);
+            }
         }
     }
 }
