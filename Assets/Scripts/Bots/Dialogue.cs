@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Dialogue : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class Dialogue : MonoBehaviour
     private float textSpeed;
     [SerializeField]
     private GameObject enemy;
+
+    [SerializeField]
+    private SceneChanger script;
 
     private int index;
     public List<string> lines = new List<string>();
@@ -72,10 +76,10 @@ public class Dialogue : MonoBehaviour
     }
 
     public void StartTyping() {
-        if (!isTutorial)
+       
         UpdateDialogue(dialogueTexts.GetDialogues());
 
-        dialogueTexts.exhausted = true;
+        
         index = 0;
         StartCoroutine(TypeLine());
     }
@@ -95,9 +99,14 @@ public class Dialogue : MonoBehaviour
             StartCoroutine(TypeLine());
         } else
         {
+            dialogueTexts.exhausted = true;
             isDialougeEnd = true;
             canType = false;
             textComp.text = string.Empty;
+            if (domeEnemiesKilled == 7)
+            {
+                script.GameOver= true;
+            }
             if (isTutorial) {
                 enemy.SetActive(true);
             }

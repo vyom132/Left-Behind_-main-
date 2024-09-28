@@ -27,4 +27,5 @@ public class NavAI : MonoBehaviour
             nav.destination = player.transform.position;
         }
     }
+   
 }

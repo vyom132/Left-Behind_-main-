@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f30fc967c70e194fa75235dae445922, type: 3}
   m_Name: Market
   m_EditorClassIdentifier: 
-  dialogues: []
-  fillers: []
+  dialogues:
+  - 'This place used to flourish with traders everywhere. Now it is just a ruin. '
+  fillers:
+  - I sense one active trader here.
   exhausted: 0

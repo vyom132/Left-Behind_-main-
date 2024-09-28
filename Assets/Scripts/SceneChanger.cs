@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     [SerializeField] private int SceneToGo;
+    public bool GameOver;
+    [SerializeField] private int Gameer;
     
     void OnTriggerEnter(Collider other)
     {
@@ -13,10 +15,16 @@ public class SceneChanger : MonoBehaviour
         {
             SceneChange();
         }
+
     }
 
     void SceneChange()
     {
+        if(GameOver) { 
+        SceneManager.LoadScene(Gameer);
+            return;
+        
+        }
         SceneManager.LoadScene(SceneToGo);
     }
 }

@@ -322,6 +322,37 @@ Transform:
   m_Father: {fileID: 6463166260467412614}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3899442884113666516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 497155539023119947}
+  m_Layer: 0
+  m_Name: spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &497155539023119947
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3899442884113666516}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.094, y: -0.514, z: 0.988}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6463166260467412614}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4003433570367594173
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +471,7 @@ Transform:
   m_Children:
   - {fileID: 1983087515227062171}
   - {fileID: 7214290571791627833}
+  - {fileID: 497155539023119947}
   m_Father: {fileID: 6676124803241411848}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -798,7 +830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageRadius: 10
-  damage: 100
+  damage: 50
   grounds: {fileID: 8820615889221828213, guid: 09d825eb46fe8604facf0f6454f3776a, type: 3}
   groundsl: {fileID: 6463166258630944727}
 --- !u!114 &6463166258629267934
@@ -813,11 +845,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed926c52bd85f5640bde89a9fdeddb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPoint: {fileID: 6463166259242372110}
+  shootPoint: {fileID: 497155539023119947}
   Cam: {fileID: 6463166260467412614}
   fireRate: 5
   throwCooldown: 5
-  ballSpeed: 5
+  ballSpeed: 10
   magicBall: {fileID: 1629879947803614521, guid: 85348e7d581fb6d4e998b55192d06ae0, type: 3}
   anim: {fileID: 0}
 --- !u!1 &6463166258630944727
@@ -1008,11 +1040,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed926c52bd85f5640bde89a9fdeddb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPoint: {fileID: 6463166260467412614}
+  shootPoint: {fileID: 497155539023119947}
   Cam: {fileID: 6463166260467412614}
   fireRate: 5
   throwCooldown: 5
-  ballSpeed: 5
+  ballSpeed: 10
   magicBall: {fileID: 1629879947803614521, guid: 85348e7d581fb6d4e998b55192d06ae0, type: 3}
   anim: {fileID: 6463166258696547426}
 --- !u!1 &6463166258960251319
@@ -1412,9 +1444,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6463166259877066582}
-  m_LocalRotation: {x: -0.018463863, y: 0.55078673, z: 0.08474026, w: 0.8301277}
-  m_LocalPosition: {x: 4.72, y: 3.32, z: 11.85}
-  m_LocalScale: {x: 2.536373, y: 13.490562, z: 0.23732542}
+  m_LocalRotation: {x: 0.045583945, y: 0.54261535, z: 0.12694712, w: 0.8290809}
+  m_LocalPosition: {x: 5.6500044, y: 27.535378, z: 9.522379}
+  m_LocalScale: {x: 2.5363724, y: 13.4905615, z: 0.23732539}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7214290571791627833}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 780219763695262747}
   - component: {fileID: 780219763695262724}
   - component: {fileID: 9158627575345857093}
-  - component: {fileID: 8241335906637247579}
+  - component: {fileID: 4855225355737146145}
   m_Layer: 0
   m_Name: attack1
   m_TagString: meele
@@ -106,7 +106,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &8241335906637247579
+--- !u!114 &4855225355737146145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 780219763695262726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb08a44de165023489c4feea1f427e4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1632fdc1327b71047993a923c7049960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 11400000, guid: 6dfaf9fc41635e942b0e359464f46daf, type: 2}

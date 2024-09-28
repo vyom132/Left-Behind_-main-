@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    public PlayerManager script;
+    public GameObject script2;
+    public List<GameObject> objects;
     [SerializeField]
+    
     public GameObject pausePanel;
     private bool pauseMenuOpen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +27,27 @@ public class PauseMenu : MonoBehaviour
             Debug.Log("Opened");
             pausePanel.SetActive(true);
             pauseMenuOpen = true;
+            script.enabled= false;
+            script2.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            foreach (var thing in objects){
+                thing.SetActive(false);
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && pauseMenuOpen)
         {
+            script2.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             Debug.Log("closed");
             pausePanel.SetActive(false);
             pauseMenuOpen = false;
+            script.enabled = true;
+            foreach (var thing in objects)
+            {
+                thing.SetActive(true);
+            }
         }
     }
 

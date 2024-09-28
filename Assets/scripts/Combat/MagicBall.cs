@@ -43,6 +43,7 @@ public class MagicBall : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && readyToThrow && MeleeAttackManager.instance.isAttacking==false)
         {
             ShootTheBall();
+            Debug.Log("shot the ball");
     // Reset the timer after shooting
             await Task.Delay(5000);
             readyToThrow = true;

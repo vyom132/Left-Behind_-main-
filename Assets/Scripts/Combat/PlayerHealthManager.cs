@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerHealthManager : MonoBehaviour
 
     public static float energy;
     public static float health;
-
+    [SerializeField] private int SceneToGo;
     [SerializeField]
     private Image energyBar;
     [SerializeField]
@@ -23,9 +24,9 @@ public class PlayerHealthManager : MonoBehaviour
     [SerializeField]
     private float healAmount = 30f;
     [SerializeField]
-    private float energyDecreaseRate = 2.5f;
+    private float energyDecreaseRate;
     [SerializeField]
-    private float energyIncreaseProportion = 0.1f;
+    private float energyIncreaseProportion;
     [SerializeField]
     private float lerpSpeed = 2f;
 
@@ -59,6 +60,7 @@ public class PlayerHealthManager : MonoBehaviour
         if (health <= 0) {
             health = 0;
             Debug.Log("Game over(health became 0)");
+            SceneManager.LoadScene(SceneToGo);
         } else if(health > maxHealth)
         {
             health = maxHealth;

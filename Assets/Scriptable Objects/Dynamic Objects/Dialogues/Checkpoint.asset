@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f30fc967c70e194fa75235dae445922, type: 3}
   m_Name: Checkpoint
   m_EditorClassIdentifier: 
-  dialogues: []
-  fillers: []
-  exhausted: 0
+  dialogues:
+  - This is the hub.
+  - "There\u2019s this upgrader here that\u2019s super important for your journey. "
+  - You can use it to upgrade your saber, and also most importantly you're supposed
+    to upgrade me.
+  - "Other than that there\u2019s two other ways you can go here from now."
+  - 'Choose wisely and take charge. '
+  fillers:
+  - Explore! I need more energy.
+  exhausted: 1

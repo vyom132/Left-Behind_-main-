@@ -29,10 +29,13 @@ public class BallMagic : MonoBehaviour
 
 
     void OnTriggerEnter(Collider other)
-    { 
-        SplashItUp();
-        Instantiate(particle, parent.transform.position, Quaternion.identity);
-        Destroy(gameObject);
+    {
+        if (other.gameObject.tag != "Player")
+        {
+            SplashItUp();
+            Instantiate(particle, parent.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     void SplashItUp()

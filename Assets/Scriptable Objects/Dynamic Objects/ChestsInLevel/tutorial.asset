@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d07d45f18e059b848a4f9f5f312d76d1, type: 3}
-  m_Name: Robot
+  m_Script: {fileID: 11500000, guid: 6724462ed982b7a40a25e0da065dfabe, type: 3}
+  m_Name: tutorial
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  upgrades:
-  - {fileID: 11400000, guid: d0a6f9509a698444c968ba9a6fbe86ab, type: 2}
-  - {fileID: 11400000, guid: 69f84b196571b4a46ba340187759ee95, type: 2}
-  damageValues: []
+  level: 0
+  chests:
+  - {fileID: 11400000, guid: c45f462a1b9e82443aa14f239db0c014, type: 2}
+  - {fileID: 11400000, guid: f69041bcb932e244dbe943499b9fc803, type: 2}
+  wasCollected: 0000

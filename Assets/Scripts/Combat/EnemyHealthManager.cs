@@ -27,6 +27,7 @@ public class EnemyHealthManager : MonoBehaviour
     private GameObject parent;
 
     public float health;
+    [SerializeField] private int SceneToGo;
 
     void Start()
     {
@@ -54,8 +55,9 @@ public class EnemyHealthManager : MonoBehaviour
             
             if (inDome)
             Dialogue.instance.domeEnemiesKilled += 1;
-
-            Destroy(objectToDestroy);
+            Debug.Log("real");
+            Destroy(gameObject);
+            
         }
         
     }

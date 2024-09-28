@@ -59,6 +59,7 @@ public class UpgradingUI : MonoBehaviour
     public void Upgrade() {
         for (int i = 0; i < upgradableItem.GetItemRequirements().counts.Count; i++) {
             InventoryManager.instance.Decrease(upgradableItem.GetItemRequirements().items[i], upgradableItem.GetItemRequirements().counts[i]);
+            Debug.Log(upgradableItem.GetItemRequirements().items[i] + " : " + upgradableItem.GetItemRequirements().counts[i]);
         }
         upgradableItem.CompleteUpgrade();
         UpdateUpgradingUI();

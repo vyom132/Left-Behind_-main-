@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d07d45f18e059b848a4f9f5f312d76d1, type: 3}
-  m_Name: Robot
+  m_Script: {fileID: 11500000, guid: 1f30fc967c70e194fa75235dae445922, type: 3}
+  m_Name: DOme
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  upgrades:
-  - {fileID: 11400000, guid: d0a6f9509a698444c968ba9a6fbe86ab, type: 2}
-  - {fileID: 11400000, guid: 69f84b196571b4a46ba340187759ee95, type: 2}
-  damageValues: []
+  dialogues:
+  - " I don\u2019t really think this is a good time to talk\u2026"
+  fillers:
+  - " I don\u2019t really think this is a good time to talk\u2026"
+  exhausted: 0

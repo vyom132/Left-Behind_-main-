@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0616998952bc44943be31af1963673dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 15
   cooldown: 1.5
 --- !u!114 &4934382390061833887
 MonoBehaviour:
@@ -379,6 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundeffect: {fileID: 438016533526744698, guid: 9823643449f7b58429e9749e3ab91217, type: 3}
   loot: {fileID: 11400000, guid: 5dec4e2ce2d8767459ef5c15f0a20198, type: 2}
+  inDome: 0
   objectToDestroy: {fileID: 5240812768330528542}
   healthBar: {fileID: 5240812768181309531}
   maxHealth: 100
@@ -473,6 +474,7 @@ GameObject:
   - component: {fileID: 5240812768330528537}
   - component: {fileID: 5240812768330528536}
   - component: {fileID: 5240812768330528539}
+  - component: {fileID: -6284805385634574132}
   m_Layer: 0
   m_Name: Level 1 Enemy 1
   m_TagString: Untagged
@@ -531,6 +533,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBot: 0
+--- !u!135 &-6284805385634574132
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5240812768330528542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5240812769009105786
 GameObject:
   m_ObjectHideFlags: 0

@@ -248,7 +248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -131.21655, y: 185.5144}
+  m_AnchoredPosition: {x: 77.80002, y: 181.3}
   m_SizeDelta: {x: 60, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &402147708529690929
@@ -606,13 +606,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952e7061a96f15f418a70898056d1537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneToGo: 0
   energyBar: {fileID: 4639310326810471141}
   healthBar: {fileID: 817988566047521862}
   healthText: {fileID: 3738029127338321898}
-  maxHealth: 1000
-  healAmount: 30
-  energyDecreaseRate: 2.5
-  energyIncreaseProportion: 10
+  maxHealth: 100
+  healAmount: 25
+  energyDecreaseRate: 0.5
+  energyIncreaseProportion: 1
   lerpSpeed: 5
 --- !u!1 &2033754172988166957
 GameObject:
@@ -1248,7 +1249,7 @@ MonoBehaviour:
   tutorialSceneNumber: 0
   creditsSceneNumber: 0
   mainMenuSceneNumber: 0
-  checkPointSceneNumber: 0
+  checkPointSceneNumber: 6
 --- !u!1 &3738939248538421915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -245.24503, y: 166.45439}
+  m_AnchoredPosition: {x: 214.49998, y: 162.23997}
   m_SizeDelta: {x: 300, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9027654930354213068
@@ -1344,7 +1345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7503657984967806546
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1439,6 +1440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff944128e8ee984386e376873b01b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  script: {fileID: 0}
+  script2: {fileID: 0}
+  objects: []
   pausePanel: {fileID: 420650518861737901}
 --- !u!1 &4658264953473961015
 GameObject:
@@ -1697,9 +1701,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3288733336679898202}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 2934994119746614919}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2851,7 +2855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2b8d5a4c500d29446805b13ad411fbe0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43c166b357bcdd94ea92d586cdc74334, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8994,7 +8998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5229180776172512084
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9974,7 +9978,7 @@ RectTransform:
   m_GameObject: {fileID: 5229180776497693238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.69999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5229180776348087116}
@@ -10013,7 +10017,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ad87f77a8ea8cf64f86ca00a114040d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 324446cd97f94464bb16d84a8431e37e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10510,7 +10514,13 @@ MonoBehaviour:
   upgradableItems:
   - {fileID: 11400000, guid: 9a253f530da90d44d99da273217793c9, type: 2}
   - {fileID: 11400000, guid: 6dfaf9fc41635e942b0e359464f46daf, type: 2}
-  allDialogueTexts: []
+  allDialogueTexts:
+  - {fileID: 11400000, guid: 3981e299f4abdb44bb41a579b7b73ed1, type: 2}
+  - {fileID: 11400000, guid: 0d9a6c1f86a9bbe45bed99d77582047c, type: 2}
+  - {fileID: 11400000, guid: 70c95a8f7d925fe4d963541b2053ccc4, type: 2}
+  - {fileID: 11400000, guid: 786ad52cf1953a54fb7b307dba7082be, type: 2}
+  - {fileID: 11400000, guid: 853dae6a481751d479689f7fcbeb0748, type: 2}
+  - {fileID: 11400000, guid: 60fdd35ab8539354db20fe5487b1bb55, type: 2}
 --- !u!1 &5940003887174370887
 GameObject:
   m_ObjectHideFlags: 0
@@ -10775,9 +10785,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3288733336679898202}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 2934994119746614919}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10822,7 +10832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -245.24503, y: 185.51439}
+  m_AnchoredPosition: {x: 214.5, y: 181.3}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &931641095833142910
@@ -11018,7 +11028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 349}
   m_SizeDelta: {x: 800, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6805787977595962291
@@ -11101,6 +11111,7 @@ MonoBehaviour:
   dialogueTexts: {fileID: 0}
   textSpeed: 0.1
   enemy: {fileID: 0}
+  script: {fileID: 0}
   lines: []
 --- !u!1 &7145841650751493982
 GameObject:
@@ -11212,12 +11223,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

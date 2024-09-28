@@ -8,7 +8,15 @@ public class dooropening : MonoBehaviour
     public Animator anim;
     public List<GameObject> enemies;
 
-    async void OnTriggerStay(Collider other)
+    private void Start()
+    {
+        foreach (var thing in enemies)
+        {
+            thing.SetActive(false);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -18,7 +26,7 @@ public class dooropening : MonoBehaviour
             }
         }
     }
-    async void OnTriggerExit(Collider other)
+ void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {

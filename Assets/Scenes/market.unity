@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0015184908, g: 0.0011111537, b: 0.0045468686, a: 1}
+  m_IndirectSpecularColor: {r: 0.001518497, g: 0.0011111577, b: 0.0045468914, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1358,6 +1358,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1003042631851375378, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: dialogueTexts
+      value: 
+      objectReference: {fileID: 11400000, guid: 70c95a8f7d925fe4d963541b2053ccc4, type: 2}
     - target: {fileID: 1391881743071216853, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -1402,6 +1406,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3831802802669042148, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5229180774489441077, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1521,6 +1529,14 @@ PrefabInstance:
     - target: {fileID: 5229180775312823692, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229180775590858889, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7184034769368697237}
+    - target: {fileID: 5229180775590858889, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Trade
       objectReference: {fileID: 0}
     - target: {fileID: 5229180776045713537, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1554,6 +1570,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Common Stuff
       objectReference: {fileID: 0}
+    - target: {fileID: 8168360770404730149, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: script
+      value: 
+      objectReference: {fileID: 2097091916}
+    - target: {fileID: 8168360770404730149, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: script2
+      value: 
+      objectReference: {fileID: 1595644580}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
 --- !u!1 &329396736
@@ -2099,6 +2123,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4578227350203789657, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6463166258960251313, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6676124803241411848, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
@@ -4381,6 +4409,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneToGo: 5
+  GameOver: 0
+  Gameer: 0
 --- !u!65 &973385251
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6792,6 +6822,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1595644580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6463166259877066580, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
+  m_PrefabInstance: {fileID: 453566339}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1607087949
 GameObject:
   m_ObjectHideFlags: 0
@@ -8708,6 +8743,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneToGo: 6
+  GameOver: 0
+  Gameer: 0
 --- !u!65 &2066787049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8777,6 +8814,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2097091916 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2025484465069414124, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
+  m_PrefabInstance: {fileID: 453566339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5518f389919bcde4bba20458d3361b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2104251082
 GameObject:
   m_ObjectHideFlags: 0
@@ -11314,8 +11362,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02927831, y: 0.030910047, z: 0.019999994}
-  m_Center: {x: -0.0046391557, y: 0.0054550557, z: 0}
+  m_Size: {x: 0.05458177, y: 0.04773204, z: 0.019999994}
+  m_Center: {x: -0.017290877, y: -0.0029559247, z: 4.2707633e-18}
 --- !u!1 &7209663661985469323
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class UpgradableItem : ScriptableObject
 
     public void CompleteUpgrade() {
         currentLevel += 1;
+        Debug.Log("Invoke an event");
         OnUpgradeCallback.Invoke();
     }
 

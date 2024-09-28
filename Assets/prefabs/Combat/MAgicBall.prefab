@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500d464e4180cf34db4271e399c27ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 5
+  lifeTime: 7.5
   damageRadius: 5
-  damage: 70
+  damage: 55
   particle: {fileID: 8166464371488257743, guid: 7ad9e5c11953c4744a37b08112de9169, type: 3}
   parent: {fileID: 4835121118352195519}
 --- !u!54 &-5254662790143947840
