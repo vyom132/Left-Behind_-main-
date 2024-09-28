@@ -9759,7 +9759,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.7311321, g: 0.9361015, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1.8347629
   m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -9823,6 +9823,7 @@ GameObject:
   - component: {fileID: 6879938519473851833}
   - component: {fileID: 984673160741392670}
   - component: {fileID: 5291136890663729875}
+  - component: {fileID: 3355618063542269783}
   m_Layer: 0
   m_Name: shooter
   m_TagString: Untagged
@@ -14844,3 +14845,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &3355618063542269783
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193859504005448318}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
