@@ -8,6 +8,8 @@ public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI instance; void Awake() { instance = this; }
 
+    public bool isActive;
+
     [SerializeField]
     private InventoryStorage inventoryStorage;
 
@@ -39,6 +41,7 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
+        isActive = false;
         inventoryPanel.SetActive(true);
         upgradingPanel.SetActive(false);
         GetComponent<Canvas>().enabled = false;
@@ -59,6 +62,8 @@ public class InventoryUI : MonoBehaviour
     }
 
     public void ToggleInventory(bool turnOn) {
+        isActive = turnOn;
+
         if (turnOn) {
             UpdateUI();
 

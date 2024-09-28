@@ -52,7 +52,7 @@ public class PlayerHealthManager : MonoBehaviour
         healthText.text = health.ToString();
     }
 
-    public void TakeDamage(float damage) {
+    async public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
             health = 0;
@@ -64,6 +64,8 @@ public class PlayerHealthManager : MonoBehaviour
 
         if (damage >= 0)
         MeleeAttackManager.instance.inCombat = true;
+        await Task.Delay(10000);
+        MeleeAttackManager.instance.inCombat = false;
     }
 
     public void RegenerateEnergy(float damage) {

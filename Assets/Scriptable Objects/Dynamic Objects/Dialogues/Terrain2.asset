@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfaf1280b13fa124b8c1235d5cd016f3, type: 3}
-  m_Name: Inventory Storage
+  m_Script: {fileID: 11500000, guid: 1f30fc967c70e194fa75235dae445922, type: 3}
+  m_Name: Terrain2
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 11400000, guid: e6137ca489ba62b40b96610ba07adc72, type: 2}
-  - {fileID: 0}
-  counts: 0100000000000000
+  dialogues:
+  - Hard to believe this was a military base where they once used to train robots.
+    Now, the same robots kill.
+  fillers:
+  - Get to work! I need more energy.
+  exhausted: 0

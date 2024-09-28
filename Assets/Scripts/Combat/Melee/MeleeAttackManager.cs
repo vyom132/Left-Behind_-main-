@@ -55,13 +55,15 @@ public class MeleeAttackManager : MonoBehaviour
         attackAnims[attackNum] = false;
         anim.SetBool(animSetBools[attackNum], false);
 
-        await Task.Delay(3000);
-        Debug.Log("Turned off combat");
+        await Task.Delay(10000);
         inCombat = false;
     }
 
     void Update()
     {
+        if (InventoryUI.instance.isActive || Dialogue.instance.canType)
+        return;
+
         if (Input.GetMouseButtonDown(0)) {
             if (!attackAnims.Contains(true)) {
                 Attack(0);

@@ -1,44 +1,9 @@
 fileFormatVersion: 2
-guid: bc8243c702ec41b4a9bf14030a14ecfc
+guid: ba2ad267051afc544aa9729336bc848b
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 5c9d8db4a0b8f5d439e5ae6d16d2de50, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: 35e0fc8eb0ea8a9459674625346e3cd9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ambientCG_Metal052C_4K-JPG
-    second: {fileID: 2100000, guid: 8e4f50fbcba749a42afdfb4500c93c41, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: light
-    second: {fileID: 2100000, guid: 9c184328d626cf74c991e25bee432924, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Metal052C_4K-JPG_Color
-    second: {fileID: 2800000, guid: 32c7ca029af8b474d94e96a386db901d, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Metal052C_4K-JPG_Metalness
-    second: {fileID: 2800000, guid: 13a67d4f6958b4e49b70c7052290e37f, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Metal052C_4K-JPG_Roughness
-    second: {fileID: 2800000, guid: 32c25a4128c92e54180691c029ea8cb4, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

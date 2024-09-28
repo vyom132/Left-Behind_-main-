@@ -2,28 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class meshchanger : MonoBehaviour
+public class MeshChanger : MonoBehaviour
 {
-    
-    public GameObject[] nextpet;
+    [SerializeField]
+    private GameObject[] meshes;
+    [SerializeField]
+    private UpgradableItem item;
    
-    
-    // Start is called before the first frame update
     void Start()
     {
-        nextpet[0].SetActive(true);
-        nextpet[1].SetActive(false);
-        
+        item.OnUpgradeCallback += UpdateMesh;
+        UpdateMesh();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            nextpet[1].SetActive(true);
-            nextpet[0].SetActive(false);
-            
+    public void UpdateMesh() {
+        for (int i = 0; i < meshes.Length; i++) {
+            meshes[i].SetActive(item.currentLevel == i);
         }
     }
 }

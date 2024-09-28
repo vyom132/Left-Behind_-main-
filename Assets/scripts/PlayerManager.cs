@@ -34,7 +34,6 @@ public class PlayerManager : MonoBehaviour
     private float mouseX;
     private float mouseY;
     private float xRotation = 0f;
-    private bool active = true;
     private bool isOn = true;
 
     void Awake()
@@ -53,7 +52,7 @@ public class PlayerManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (active)
+        if (!InventoryUI.instance.isActive)
         {
             // movement
             x = Input.GetAxis("Horizontal");
@@ -100,11 +99,6 @@ public class PlayerManager : MonoBehaviour
         // {
         //     lightsource.intensity = 1.5f;
         // }
-    }
-
-    public void ChangeState(bool value)
-    {
-        active = value;
     }
 
     private void OnCollisionEnter(Collision collision)
