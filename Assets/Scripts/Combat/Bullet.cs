@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
             // Handle player hit logic here
             Debug.Log("Player hit!");
             PlayerHealthManager.instance.TakeDamage(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
