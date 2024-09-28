@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,6 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df4f831546349645a6a0681a4a94ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshes: []
+  item: {fileID: 0}
 --- !u!1 &731136938
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,7 +908,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1192738250
 GameObject:
@@ -1075,7 +1077,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1525562715
 GameObject:
@@ -1091,12 +1093,12 @@ GameObject:
   - component: {fileID: 1525562718}
   - component: {fileID: 1525562717}
   m_Layer: 0
-  m_Name: sword_animation 1 (1)
+  m_Name: sword_animation 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1525562716
 Transform:
   m_ObjectHideFlags: 0
@@ -1515,7 +1517,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2075541529
 MonoBehaviour:
@@ -1645,7 +1647,7 @@ Transform:
   - {fileID: 1086775033}
   - {fileID: 1192738251}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &58333598110526448
 GameObject:
@@ -1837,7 +1839,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570124914404451669}
-  m_Mesh: {fileID: 8691780276856062721, guid: 4b0caedce4916604e95ba5e9f0c07461, type: 3}
+  m_Mesh: {fileID: 6239881831769578202, guid: 6ab6b2f1ef2eade4892dde6354aaa38b, type: 3}
 --- !u!1 &7944009887568048642
 GameObject:
   m_ObjectHideFlags: 0
