@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca5fe56d13c0f9449681200d3306d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loot: {fileID: 11400000, guid: 425399cf2724f4841bc5d96fa39f797d, type: 2}
   objectToDestroy: {fileID: 1001467978280682414}
   healthBar: {fileID: 1001467976582420318}
   maxHealth: 100

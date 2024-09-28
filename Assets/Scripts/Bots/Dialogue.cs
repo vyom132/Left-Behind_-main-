@@ -11,6 +11,7 @@ public class Dialogue : MonoBehaviour
     
     public bool isDialougeEnd; 
     public bool canType;
+    public bool isTutorial;
 
     [SerializeField]
     private TMP_Text textComp;
@@ -18,8 +19,6 @@ public class Dialogue : MonoBehaviour
     private DialogueTexts dialogueTexts;
     [SerializeField]
     private float textSpeed;
-    [SerializeField]
-    private bool isTutorial;
     [SerializeField]
     private GameObject enemy;
 
