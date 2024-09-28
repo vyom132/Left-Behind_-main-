@@ -9,4 +9,5 @@ public class UpgradeRequirements : ScriptableObject
     public Sprite initialIcon;
     public List<Item> items;
     public List<int> counts;
+    public string description;
 }

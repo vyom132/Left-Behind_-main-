@@ -16,6 +16,8 @@ public class UpgradingUI : MonoBehaviour
     private string disabledColor = "#FF9494";
 
     [SerializeField]
+    private TMP_Text desc;
+    [SerializeField]
     private Image icon;
     [SerializeField]
     private List<TMP_Text> requirements;
@@ -38,6 +40,7 @@ public class UpgradingUI : MonoBehaviour
 
         reqs = upgradableItem.GetItemRequirements();
         icon.sprite = upgradableItem.GetItemRequirements().initialIcon;
+        desc.text = upgradableItem.GetItemRequirements().description;
 
         upgradeCheck = 0;
         for (int i = 0; i < requirements.Count; i++) {
