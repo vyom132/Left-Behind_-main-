@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1790,10 +1790,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletFab: {fileID: 4766281426694622843, guid: 6d22a54d922d7e94f8c933210082fcf5, type: 3}
-  player: {fileID: 1479229362}
   firePoint: {fileID: 2106403751}
+  detectionRange: 20
   fireRate: 2
+  nextFireTime: 0
   bulletSpeed: 5
+  rotationSpeed: 180
+  interactRange: 20
 --- !u!114 &1284896748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2384,8 +2387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa473d10f2e7ea4b84f444f760495df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interact: {fileID: 0}
   animator: {fileID: 2047309575}
+  interactRange: 2
 --- !u!136 &1479229366
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3232,10 +3235,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDialougeEnd: 0
-  textComp: {fileID: 1710031807}
-  lines: []
-  textSpeed: 0.1
   canType: 0
+  isTutorial: 0
+  textComp: {fileID: 0}
+  dialogueTexts: {fileID: 0}
+  textSpeed: 0.1
+  enemy: {fileID: 0}
+  lines: []
 --- !u!1 &2106403750
 GameObject:
   m_ObjectHideFlags: 0
