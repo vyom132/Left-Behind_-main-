@@ -36,6 +36,8 @@ public class PlayerManager : MonoBehaviour
     private float xRotation = 0f;
     private bool isOn = true;
 
+    public GameObject walkingSOundEffect;
+
     void Awake()
     {
         playerObject = gameObject;
@@ -77,6 +79,12 @@ public class PlayerManager : MonoBehaviour
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
             cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             player.Rotate(Vector3.up * mouseX);
+        }
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) {
+            walkingSOundEffect.SetActive(true);
+        }
+        else {
+            walkingSOundEffect.SetActive(false);
         }
     }
 
