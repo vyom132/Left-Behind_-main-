@@ -26,6 +26,9 @@ public class InventoryManager : MonoBehaviour
         nearTrader = false;
         nearChest = false;
         nearUpgrader = false;
+
+        if (Dialogue.instance.isTutorial)
+        ResetValues();
     }
 
     public void ResetValues() {
