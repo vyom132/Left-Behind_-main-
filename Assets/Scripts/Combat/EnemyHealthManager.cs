@@ -8,8 +8,10 @@ using TMPro;
 public class EnemyHealthManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject objectToDestroy;
+    private EnemyLoot loot;
 
+    [SerializeField]
+    private GameObject objectToDestroy;
     [SerializeField]
     private Image healthBar;
     [SerializeField]
@@ -40,6 +42,10 @@ public class EnemyHealthManager : MonoBehaviour
         if (health <= 0) {
             health = 0;
             Instantiate(particle, parent.transform.position, Quaternion.identity);
+
+            for (int i = 0; i < loot.items.Count; i++) {
+                InventoryManager.instance.Increase(loot.items[i], loot.counts[i]);
+            }
             Destroy(objectToDestroy);
         }
         
