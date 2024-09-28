@@ -37,6 +37,9 @@ public class PlayerManager : MonoBehaviour
     private bool isOn = true;
 
     public GameObject walkingSOundEffect;
+    public GameObject music1;
+    public bool inDome;
+    public GameObject music2;
 
     void Awake()
     {
@@ -50,6 +53,15 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        walkingSOundEffect.SetActive(false);
+        if (inDome) {
+            music2.SetActive(true);
+            music1.SetActive(false);
+        } else {
+            music2.SetActive(false);
+            music1.SetActive(true);
+        }
+            
     }
 
     void FixedUpdate()
@@ -80,7 +92,7 @@ public class PlayerManager : MonoBehaviour
             cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             player.Rotate(Vector3.up * mouseX);
         }
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) {
             walkingSOundEffect.SetActive(true);
         }
         else {

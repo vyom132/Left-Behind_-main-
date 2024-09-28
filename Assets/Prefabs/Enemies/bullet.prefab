@@ -114,6 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 5
   damage: 20
+  particle: {fileID: 414618434399070495}
+  parent: {fileID: 4766281426694622843}
 --- !u!54 &-1877672154973694372
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -214,5 +216,10 @@ PrefabInstance:
 --- !u!4 &414618434399070488 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9027514048236820042, guid: effb650189dc5714e9e9801b1cfb3991, type: 3}
+  m_PrefabInstance: {fileID: 8685518945319288658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &414618434399070495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9027514048236820045, guid: effb650189dc5714e9e9801b1cfb3991, type: 3}
   m_PrefabInstance: {fileID: 8685518945319288658}
   m_PrefabAsset: {fileID: 0}

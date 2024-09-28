@@ -31,6 +31,8 @@ public class PlayerHealthManager : MonoBehaviour
 
     void Start()
     {
+
+        maxHealth = 100f;
         energy = maxHealth;
         health = maxHealth;
     }

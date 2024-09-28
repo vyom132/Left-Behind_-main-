@@ -7,8 +7,11 @@ using TMPro;
 
 public class EnemyHealthManager : MonoBehaviour
 {
+    public GameObject soundeffect;
+
     [SerializeField]
     private EnemyLoot loot;
+    public bool inDome;
 
     [SerializeField]
     private GameObject objectToDestroy;
@@ -46,6 +49,12 @@ public class EnemyHealthManager : MonoBehaviour
             for (int i = 0; i < loot.items.Count; i++) {
                 InventoryManager.instance.Increase(loot.items[i], loot.counts[i]);
             }
+
+            Instantiate(soundeffect, transform.position, Quaternion.identity);
+            
+            if (inDome)
+            Dialogue.instance.domeEnemiesKilled += 1;
+
             Destroy(objectToDestroy);
         }
         

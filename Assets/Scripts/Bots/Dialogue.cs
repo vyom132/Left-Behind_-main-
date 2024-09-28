@@ -12,7 +12,10 @@ public class Dialogue : MonoBehaviour
     public bool isDialougeEnd; 
     public bool canType;
     public bool isTutorial;
+    public int domeEnemiesKilled = 0;
 
+    [SerializeField]
+    private List<string> endingLines;
     [SerializeField]
     private TMP_Text textComp;
     [SerializeField]
@@ -36,6 +39,9 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
+        if (domeEnemiesKilled == 7)
+        UpdateDialogue(endingLines);
+
         if (Input.GetMouseButtonDown(0) && canType == true) {
             if (textComp.text == lines[index]) {
                 NextLine();

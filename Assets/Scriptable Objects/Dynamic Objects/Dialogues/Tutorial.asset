@@ -21,4 +21,4 @@ MonoBehaviour:
   - Your health is visible in the top right corner, along with my energy bar.
   - "If you ever are low on health, press Q and I will heal you by using up some
     of my energy. Don\u2019t die!"
-  exhausted: 1
+  exhausted: 0
