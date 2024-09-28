@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 2209015733512854529}
   - component: {fileID: 990792588677419590}
   m_Layer: 0
-  m_Name: LVL2ROBOT
+  m_Name: Level 3 Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0aaa54143d00e4ab56d0c4111891a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBot: 0
 --- !u!1 &2209015733988371316
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
+  cooldown: 1.5
 --- !u!136 &2209015733988371320
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -660,6 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca5fe56d13c0f9449681200d3306d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToDestroy: {fileID: 2209015733512854528}
   healthBar: {fileID: 2209015734690449667}
   maxHealth: 100
   lerpSpeed: 5

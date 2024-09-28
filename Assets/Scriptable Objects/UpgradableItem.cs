@@ -13,6 +13,8 @@ public class UpgradableItem : ScriptableObject
 
     [SerializeField]
     private List<UpgradeRequirements> upgrades;
+    [SerializeField]
+    private List<float> damageValues;
 
     public void CompleteUpgrade() {
         currentLevel += 1;
@@ -25,5 +27,9 @@ public class UpgradableItem : ScriptableObject
 
     public UpgradeRequirements GetItemRequirements() {
         return upgrades[currentLevel];
+    }
+
+    public float GetDamage() {
+        return damageValues[currentLevel];
     }
 }

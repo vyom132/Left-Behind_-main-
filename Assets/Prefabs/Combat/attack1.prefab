@@ -111,8 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb08a44de165023489c4feea1f427e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  hitNumber: 1
+  sword: {fileID: 11400000, guid: 6dfaf9fc41635e942b0e359464f46daf, type: 2}
 --- !u!54 &9158627575345857093
 Rigidbody:
   m_ObjectHideFlags: 0

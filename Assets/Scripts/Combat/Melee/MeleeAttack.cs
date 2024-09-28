@@ -6,14 +6,15 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
     [SerializeField]
-    private float damage;
+    private UpgradableItem sword;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyHealthManager>().TakeDamage(damage);
-            PlayerHealthManager.instance.RegenerateEnergy(damage);
+            Debug.Log(sword.GetDamage() + " damage dealt to enemy");
+            other.gameObject.GetComponent<EnemyHealthManager>().TakeDamage(sword.GetDamage());
+            PlayerHealthManager.instance.RegenerateEnergy(sword.GetDamage());
         }
     }
 }

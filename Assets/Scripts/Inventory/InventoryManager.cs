@@ -18,18 +18,17 @@ public class InventoryManager : MonoBehaviour
     private ChestsInLevel chestsInLevel;
     [SerializeField]
     private List<UpgradableItem> upgradableItems;
+    [SerializeField]
+    private List<DialogueTexts> allDialogueTexts;
 
     void Start() {
         selected = null;
         nearTrader = false;
         nearChest = false;
         nearUpgrader = false;
-
-        // AFTER IMPLEMENTATION THIS WILL ONLY BE CALLED AT START OF GAME
-        ResetValues();
     }
 
-    void ResetValues() {
+    public void ResetValues() {
         Debug.Log("Resetting...");
         inventoryStorage.items.Clear();
         inventoryStorage.counts.Clear();
@@ -40,6 +39,10 @@ public class InventoryManager : MonoBehaviour
 
         foreach (var upgradableItem in upgradableItems) {
             upgradableItem.currentLevel = 0;
+        }
+
+        foreach (var dialogueTexts in allDialogueTexts) {
+            dialogueTexts.exhausted = false;
         }
     }
 

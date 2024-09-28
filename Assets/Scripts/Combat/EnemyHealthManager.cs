@@ -8,6 +8,9 @@ using TMPro;
 public class EnemyHealthManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject objectToDestroy;
+
+    [SerializeField]
     private Image healthBar;
     [SerializeField]
     private float maxHealth;
@@ -30,7 +33,7 @@ public class EnemyHealthManager : MonoBehaviour
         health -= damage;
         if (health <= 0) {
             health = 0;
-            Debug.Log("Enemy died");
+            Destroy(objectToDestroy);
         }
         Debug.Log("Enemy got hit with damage " + damage);
     }
