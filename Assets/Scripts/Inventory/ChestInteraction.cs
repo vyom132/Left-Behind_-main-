@@ -7,7 +7,7 @@ public class ChestInteraction : MonoBehaviour
     [SerializeField]
     private int chestID; // Starts from 1
 
-    void OnTriggerEnter(Collider collider) {
+    void OnTriggerStay(Collider collider) {
         if (collider.CompareTag("Player")) {
             InventoryManager.instance.ChangeChestID(chestID, true);
         }
