@@ -19,7 +19,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField]
     private float textSpeed;
     [SerializeField]
-    private bool isTutorial;
+    public bool isTutorial;
     [SerializeField]
     private GameObject enemy;
 

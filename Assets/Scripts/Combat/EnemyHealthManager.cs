@@ -35,11 +35,13 @@ public class EnemyHealthManager : MonoBehaviour
 
     public void TakeDamage(float damage) {
         health -= damage;
+        Debug.Log("Enemy got hit with damage " + damage);
+
         if (health <= 0) {
             health = 0;
             Instantiate(particle, parent.transform.position, Quaternion.identity);
             Destroy(objectToDestroy);
         }
-        Debug.Log("Enemy got hit with damage " + damage);
+        
     }
 }
