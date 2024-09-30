@@ -6,20 +6,30 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance; void Awake() { instance = this; }
 
+    [HideInInspector]
     public Item selected;
+    [HideInInspector]
     public bool nearTrader;
+    [HideInInspector]
     public bool nearChest;
+    [HideInInspector]
     public bool nearUpgrader;
+    [HideInInspector]
     public int chestID;
 
-    [SerializeField]
-    private InventoryStorage inventoryStorage;
+
+    [Header("-------------Scene-specific-------------")]
     [SerializeField]
     private ChestsInLevel chestsInLevel;
+
+    [Header("-----------------Preset-----------------")]
+    [SerializeField]
+    private InventoryStorage inventoryStorage;
     [SerializeField]
     private List<UpgradableItem> upgradableItems;
     [SerializeField]
     private List<DialogueTexts> allDialogueTexts;
+
 
     void Start() {
         selected = null;

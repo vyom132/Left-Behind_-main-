@@ -6,6 +6,13 @@ using TMPro;
 
 public class InventorySlot : MonoBehaviour
 {
+    [HideInInspector]
+    public Item item;
+    [HideInInspector]
+    public bool isEmpty = true;
+
+
+    [Header("-----------------Preset-----------------")]
     [SerializeField]
     private TMP_Text countTMP;
     [SerializeField]
@@ -15,8 +22,6 @@ public class InventorySlot : MonoBehaviour
     [SerializeField]
     private bool isTraderSlot = false;
 
-    public Item item;
-    public bool isEmpty = true;
 
     private InventoryManager inventory;
     private InventoryUI inventoryUI;

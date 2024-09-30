@@ -9,16 +9,17 @@ public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI instance; void Awake() { instance = this; }
 
+    [HideInInspector]
     public bool isActive;
 
+
+    [Header("-----------------Preset-----------------")]
     [SerializeField]
     private InventoryStorage inventoryStorage;
-
     [SerializeField]
     private TMP_Text titleTMP;
     [SerializeField]
     private TMP_Text descriptionTMP;
-
     [SerializeField]
     private GameObject inventoryPanel;
     [SerializeField]
@@ -33,13 +34,15 @@ public class InventoryUI : MonoBehaviour
     private Button collectButton;
     [SerializeField]
     private List<UpgradingUI> upgradingUIs;
+    [SerializeField]
+    private PauseMenu pauseMenu;
+
 
     private InventoryManager inventory;
     private InventorySlot[] inventorySlots;
     private InventorySlot[] chestSlots;
     private List<Item> chestItems;
     private List<int> chestCounts;
-    [SerializeField] private PauseMenu script;
 
     void Start()
     {
@@ -64,9 +67,13 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    public void CollectItemsFromChest() {
+        InventoryManager.instance.CollectItemsFromChest();
+    }
+
     public void ToggleInventory(bool turnOn) {
         isActive = turnOn;
-        script.enabled= !turnOn;
+        pauseMenu.enabled = !turnOn;
 
         if (turnOn) {
             UpdateUI();

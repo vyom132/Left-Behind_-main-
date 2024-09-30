@@ -124,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1382910950228682204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1632fdc1327b71047993a923c7049960, type: 3}
+  m_Script: {fileID: 11500000, guid: bb08a44de165023489c4feea1f427e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 11400000, guid: 6dfaf9fc41635e942b0e359464f46daf, type: 2}

@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0616998952bc44943be31af1963673dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 5
   cooldown: 1.5
 --- !u!114 &4934382390061833887
 MonoBehaviour:
@@ -377,17 +377,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca5fe56d13c0f9449681200d3306d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundeffect: {fileID: 438016533526744698, guid: 9823643449f7b58429e9749e3ab91217, type: 3}
+  health: 0
+  sound: enemy1
   loot: {fileID: 11400000, guid: 5dec4e2ce2d8767459ef5c15f0a20198, type: 2}
-  inDome: 0
   objectToDestroy: {fileID: 5240812768330528542}
-  healthBar: {fileID: 5240812768181309531}
-  maxHealth: 80
-  lerpSpeed: 2
   particle: {fileID: 7040446181027560177, guid: 43b3695728ff5b547b64cf418b9c86bd, type: 3}
   parent: {fileID: 1268101519858725575}
-  health: 0
-  SceneToGo: 0
+  maxHealth: 80
+  inDome: 0
+  lerpSpeed: 2
+  healthBar: {fileID: 5240812768181309531}
 --- !u!1 &5240812768181309529
 GameObject:
   m_ObjectHideFlags: 0
