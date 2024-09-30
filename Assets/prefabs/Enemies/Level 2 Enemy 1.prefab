@@ -118,10 +118,9 @@ GameObject:
   - component: {fileID: 1001467976984615538}
   - component: {fileID: 1001467976984615564}
   - component: {fileID: 1001467976984615539}
-  - component: {fileID: 1001467976984615565}
   m_Layer: 0
   m_Name: lvl3robot
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,26 +171,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1001467976984615565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001467976984615537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca5fe56d13c0f9449681200d3306d09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loot: {fileID: 11400000, guid: 425399cf2724f4841bc5d96fa39f797d, type: 2}
-  objectToDestroy: {fileID: 1001467978280682414}
-  healthBar: {fileID: 1001467976582420318}
-  maxHealth: 100
-  lerpSpeed: 2
-  particle: {fileID: 6484064407671196097, guid: 90294c938baac9649acb9527beb7d918, type: 3}
-  parent: {fileID: 6215686470845664663}
-  health: 0
 --- !u!1 &1001467977535021444
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,9 +451,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1001467978280682408}
   - component: {fileID: 1001467978280682415}
+  - component: {fileID: 8156153839268201572}
+  - component: {fileID: 6404426973136466130}
   m_Layer: 0
   m_Name: Level 2 Enemy 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -510,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556f05b06f4014442985bf30bd9574c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletFab: {fileID: 8148241007724822869, guid: d9968e9cebdbc264ba225051f0705911, type: 3}
+  bulletFab: {fileID: 4766281426694622843, guid: 6d22a54d922d7e94f8c933210082fcf5, type: 3}
   firePoint: {fileID: 1001467976256675050}
   detectionRange: 50
   fireRate: 0.5
@@ -518,6 +499,42 @@ MonoBehaviour:
   bulletSpeed: 1.2
   rotationSpeed: 180
   interactRange: 40
+--- !u!114 &8156153839268201572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001467978280682414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca5fe56d13c0f9449681200d3306d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: enemy2
+  loot: {fileID: 11400000, guid: 425399cf2724f4841bc5d96fa39f797d, type: 2}
+  inDome: 0
+  objectToDestroy: {fileID: 1001467978280682414}
+  healthBar: {fileID: 1001467976582420318}
+  maxHealth: 100
+  lerpSpeed: 2
+  particle: {fileID: 6484064407671196097, guid: 90294c938baac9649acb9527beb7d918, type: 3}
+  parent: {fileID: 6215686470845664663}
+  health: 0
+  SceneToGo: 0
+--- !u!65 &6404426973136466130
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001467978280682414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.316786, y: 6.6620207, z: 6.513672}
+  m_Center: {x: 0.1260271, y: 2.8310103, z: -1.0215302}
 --- !u!1 &6215686470845664663
 GameObject:
   m_ObjectHideFlags: 0

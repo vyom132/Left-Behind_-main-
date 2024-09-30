@@ -6,15 +6,13 @@ using UnityEngine.UI;
 
 public class UpgradingUI : MonoBehaviour
 {
+    [Header("-----------------Preset-----------------")]
     [SerializeField]
     private UpgradableItem upgradableItem;
     [SerializeField]
     private InventoryStorage inventoryStorage;
     [SerializeField]
-    private string enabledColor = "#6BFF00";
-    [SerializeField]
-    private string disabledColor = "#FF9494";
-
+    private TMP_Text desc;
     [SerializeField]
     private Image icon;
     [SerializeField]
@@ -25,9 +23,21 @@ public class UpgradingUI : MonoBehaviour
     private GameObject panelStuff;
     [SerializeField]
     private GameObject finalIcon;
+    [SerializeField]
+    private string enabledColor;
+    [SerializeField]
+    private string disabledColor;
+
+
     private int upgradeCheck;
     private Color newColor;
     private UpgradeRequirements reqs;
+    private MeshChanger meshChanger;
+
+    void Start()
+    {
+        meshChanger = MeshChanger.instance.gameObject.GetComponent<MeshChanger>();
+    }
 
     public void UpdateUpgradingUI() {
         if (upgradableItem.InFinalLevel()) {
@@ -38,6 +48,7 @@ public class UpgradingUI : MonoBehaviour
 
         reqs = upgradableItem.GetItemRequirements();
         icon.sprite = upgradableItem.GetItemRequirements().initialIcon;
+        desc.text = upgradableItem.GetItemRequirements().description;
 
         upgradeCheck = 0;
         for (int i = 0; i < requirements.Count; i++) {
@@ -59,8 +70,10 @@ public class UpgradingUI : MonoBehaviour
     public void Upgrade() {
         for (int i = 0; i < upgradableItem.GetItemRequirements().counts.Count; i++) {
             InventoryManager.instance.Decrease(upgradableItem.GetItemRequirements().items[i], upgradableItem.GetItemRequirements().counts[i]);
+            Debug.Log(upgradableItem.GetItemRequirements().items[i] + " : " + upgradableItem.GetItemRequirements().counts[i]);
         }
         upgradableItem.CompleteUpgrade();
         UpdateUpgradingUI();
+        meshChanger.UpdateMesh();
     }
 }
