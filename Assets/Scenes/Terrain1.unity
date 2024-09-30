@@ -242,7 +242,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2760420622977999030, guid: 5d2bc157f9b704a409d042a917ea540b, type: 3}
       propertyPath: chestID
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8103803910554031079, guid: 5d2bc157f9b704a409d042a917ea540b, type: 3}
       propertyPath: m_Name
@@ -1927,7 +1927,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2760420622977999030, guid: 5d2bc157f9b704a409d042a917ea540b, type: 3}
       propertyPath: chestID
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8103803910554031079, guid: 5d2bc157f9b704a409d042a917ea540b, type: 3}
       propertyPath: m_Name
@@ -4302,8 +4302,20 @@ PrefabInstance:
       value: Common Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 7534618069802111914, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: pp
+      value: 
+      objectReference: {fileID: 1497509559}
+    - target: {fileID: 7534618069802111914, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1314556218}
+    - target: {fileID: 7534618069802111914, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: anim2
+      value: 
+      objectReference: {fileID: 1911300614}
+    - target: {fileID: 7534618069802111914, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
       propertyPath: SceneToGo
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8168360770404730149, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
       propertyPath: script
@@ -5232,6 +5244,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 748bb4f30e713f748aa9c37a508958bc, type: 3}
+--- !u!95 &1314556218 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2223267104973316577, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
+  m_PrefabInstance: {fileID: 1782864182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1364169588
 GameObject:
   m_ObjectHideFlags: 0
@@ -5997,6 +6014,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 678377228503203463, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4181834875972284785, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
       propertyPath: animator
       value: 
@@ -6049,6 +6070,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6539011829555885024, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6676124803241411848, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.7619749
@@ -6067,7 +6092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6676124803241411848, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.27
+      value: 2.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
@@ -6282,6 +6307,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab9ac780f497c594180f2ffe5d773acf, type: 3}
+--- !u!95 &1911300614 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8872408896772297279, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+  m_PrefabInstance: {fileID: 1081233755}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1914736524
 GameObject:
   m_ObjectHideFlags: 0
@@ -7349,7 +7379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145396074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.12, y: 0, z: 0.12}
+  m_LocalPosition: {x: 4.12, y: 0, z: 1.35}
   m_LocalScale: {x: 10.759, y: 1, z: 4.491}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7369,6 +7399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneToGo: 6
+  GameOver: 0
+  Gameer: 0
 --- !u!65 &2145396077
 BoxCollider:
   m_ObjectHideFlags: 0

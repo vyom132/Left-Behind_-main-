@@ -30,6 +30,7 @@ public class UpgradingUI : MonoBehaviour
     private int upgradeCheck;
     private Color newColor;
     private UpgradeRequirements reqs;
+    [SerializeField] private MeshChanger script;
 
     public void UpdateUpgradingUI() {
         if (upgradableItem.InFinalLevel()) {
@@ -66,5 +67,6 @@ public class UpgradingUI : MonoBehaviour
         }
         upgradableItem.CompleteUpgrade();
         UpdateUpgradingUI();
+        script.UpdateMesh();
     }
 }

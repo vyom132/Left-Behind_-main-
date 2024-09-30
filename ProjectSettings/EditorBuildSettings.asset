@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameIsOver.unity
     guid: b55cbe6d98a673b4f824c036a493d07b
+  - enabled: 1
+    path: Assets/Scenes/YouDied.unity
+    guid: 8b07f6f6889b29c4f95f02316128ec3f
   m_configObjects: {}

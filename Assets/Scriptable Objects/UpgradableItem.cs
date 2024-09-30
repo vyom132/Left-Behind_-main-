@@ -6,8 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Upgradable Item", menuName = "Inventory/Upgradable Item")]
 public class UpgradableItem : ScriptableObject
 {
-    public delegate void OnUpgrade();
-    public OnUpgrade OnUpgradeCallback;
+   
 
     public int currentLevel;
 
@@ -19,7 +18,7 @@ public class UpgradableItem : ScriptableObject
     public void CompleteUpgrade() {
         currentLevel += 1;
         Debug.Log("Invoke an event");
-        OnUpgradeCallback.Invoke();
+        
     }
 
     public bool InFinalLevel() {

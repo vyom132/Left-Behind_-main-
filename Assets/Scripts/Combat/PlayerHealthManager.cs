@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerHealthManager : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class PlayerHealthManager : MonoBehaviour
 
     public static float energy;
     public static float health;
+    public Animator anim;
+    public Animator anim2;
+    public PostProcessVolume pp;
+    public Vignette vig;
+   
+    
     [SerializeField] private int SceneToGo;
     [SerializeField]
     private Image energyBar;
@@ -29,6 +36,8 @@ public class PlayerHealthManager : MonoBehaviour
     private float energyIncreaseProportion;
     [SerializeField]
     private float lerpSpeed = 2f;
+    
+
 
     void Start()
     {
@@ -36,6 +45,8 @@ public class PlayerHealthManager : MonoBehaviour
         maxHealth = 100f;
         energy = maxHealth;
         health = maxHealth;
+        pp.profile.TryGetSettings(out vig);
+       
     }
 
     void Update()
@@ -60,10 +71,29 @@ public class PlayerHealthManager : MonoBehaviour
         if (health <= 0) {
             health = 0;
             Debug.Log("Game over(health became 0)");
+            anim.Play("death");
+            
+            await Task.Delay(1000);
+            anim2.Play("blackout");
+            PlayerManager.instance.ToggleMusic();
+            
+            
+            await Task.Delay(1500);
             SceneManager.LoadScene(SceneToGo);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         } else if(health > maxHealth)
         {
             health = maxHealth;
+        }
+        if (health <=30)
+        {
+            vig.intensity.value = 0.528f;
+            vig.color.value = Color.red;
+        }
+        else
+        {
+            vig.intensity.value = 0.114f;
         }
 
         if (damage >= 0)

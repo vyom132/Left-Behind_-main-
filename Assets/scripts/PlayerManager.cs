@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public static PlayerManager instance;
     public static GameObject playerObject;
 
     [SerializeField]
@@ -40,6 +41,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject music1;
     public bool inDome;
     public GameObject music2;
+    private float MasterV;
+    public AudioSource Mainmusic;
+    
 
     void Awake()
     {
@@ -48,10 +52,14 @@ public class PlayerManager : MonoBehaviour
         controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         player = GetComponent<Transform>();
-    }
+        instance = this;
+
+       
+}
 
     void Start()
     {
+        
         Cursor.lockState = CursorLockMode.Locked;
         walkingSOundEffect.SetActive(false);
         if (inDome) {
@@ -61,7 +69,12 @@ public class PlayerManager : MonoBehaviour
             music2.SetActive(false);
             music1.SetActive(true);
         }
-            
+
+
+      
+       
+
+
     }
 
     void FixedUpdate()
@@ -98,10 +111,17 @@ public class PlayerManager : MonoBehaviour
         else {
             walkingSOundEffect.SetActive(false);
         }
+        
+        Debug.Log(AudioSettings.instance.Volume);
+        
     }
 
     void Update()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Mainmusic.volume = AudioSettings.instance.Volume;
+
         //flashlight
         // if (lightsource.intensity > 0)
         // {
@@ -119,6 +139,7 @@ public class PlayerManager : MonoBehaviour
         // {
         //     lightsource.intensity = 1.5f;
         // }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -127,5 +148,11 @@ public class PlayerManager : MonoBehaviour
         {
             onground = true;
         }
+    }
+
+    public void ToggleMusic()
+    {
+        music1.SetActive(false);
+        music2.SetActive(false);
     }
 }

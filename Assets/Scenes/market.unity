@@ -1570,6 +1570,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Common Stuff
       objectReference: {fileID: 0}
+    - target: {fileID: 7534618069802111914, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: pp
+      value: 
+      objectReference: {fileID: 203540419}
+    - target: {fileID: 7534618069802111914, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: SceneToGo
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8168360770404730149, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
       propertyPath: script
       value: 
@@ -4389,7 +4397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973385248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.864, z: -0}
+  m_LocalPosition: {x: 0, y: 0.633, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8723,7 +8731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066787046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0308, y: -0.0272, z: -0.055}
+  m_LocalPosition: {x: 0.0308, y: -0.031, z: -0.055}
   m_LocalScale: {x: 0.12451, y: 0.083204, z: 0.12894}
   m_ConstrainProportionsScale: 0
   m_Children: []

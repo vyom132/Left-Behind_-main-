@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.001518497, g: 0.009832794, b: 0.124892496, a: 1}
+  m_IndirectSpecularColor: {r: 0.0010416271, g: 0.021841887, b: 0.40502262, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -401,14 +401,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1338230215049181016, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
+      propertyPath: m_Volume
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 2025484465069414124, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
       propertyPath: inDome
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175836509795604693, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
+      propertyPath: m_Volume
+      value: 0.506
       objectReference: {fileID: 0}
     - target: {fileID: 4181834875972284785, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1938669742}
+    - target: {fileID: 6463166258960251313, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6463166258960251319, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
       propertyPath: m_Name
       value: Player
@@ -837,6 +849,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7343247477884177021, guid: a996ad3aff2a9ea43964a55dbb33b1cd, type: 3}
   m_PrefabInstance: {fileID: 642306618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &738480228 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8872408896772297279, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+  m_PrefabInstance: {fileID: 1788873474}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &791869478
 PrefabInstance:
@@ -1428,6 +1445,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1399541605 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2223267104973316577, guid: 7836cb4ef61fd3344a064895c3f95481, type: 3}
+  m_PrefabInstance: {fileID: 467217707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1417612847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,7 +1476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417612847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00161, y: -0.02426, z: 0.00165}
+  m_LocalPosition: {x: 0.00161, y: -0.02427, z: 0.00165}
   m_LocalScale: {x: 0.0062254397, y: 0.0036012032, z: 0.010048}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2128,17 +2150,37 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5940003887014568663, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5940003887014568665, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
       propertyPath: chestsInLevel
       value: 
       objectReference: {fileID: 11400000, guid: d68dd0b989fb1624daabd84e42a48d35, type: 2}
+    - target: {fileID: 5940003887174370887, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7145841650751493982, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
       propertyPath: m_Name
       value: Common Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 7534618069802111914, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: pp
+      value: 
+      objectReference: {fileID: 1357444686}
+    - target: {fileID: 7534618069802111914, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1399541605}
+    - target: {fileID: 7534618069802111914, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
+      propertyPath: anim2
+      value: 
+      objectReference: {fileID: 738480228}
+    - target: {fileID: 7534618069802111914, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
       propertyPath: SceneToGo
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8168360770404730149, guid: 76dedf5e95b000f46b3b1ff19cd9416f, type: 3}
       propertyPath: script

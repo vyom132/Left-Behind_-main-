@@ -11,7 +11,7 @@ public class MeshChanger : MonoBehaviour
    
     void Start()
     {
-        item.OnUpgradeCallback += UpdateMesh;
+       
         UpdateMesh();
     }
 

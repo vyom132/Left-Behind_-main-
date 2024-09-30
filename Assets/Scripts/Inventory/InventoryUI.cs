@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Runtime.CompilerServices;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class InventoryUI : MonoBehaviour
     private InventorySlot[] chestSlots;
     private List<Item> chestItems;
     private List<int> chestCounts;
+    [SerializeField] private PauseMenu script;
 
     void Start()
     {
@@ -48,6 +50,7 @@ public class InventoryUI : MonoBehaviour
         inventory = InventoryManager.instance;
         inventorySlots = slotsPanel.GetComponentsInChildren<InventorySlot>();
         chestSlots = chestPanel.GetComponentsInChildren<InventorySlot>();
+        
     }
 
     void Update()
@@ -63,6 +66,7 @@ public class InventoryUI : MonoBehaviour
 
     public void ToggleInventory(bool turnOn) {
         isActive = turnOn;
+        script.enabled= !turnOn;
 
         if (turnOn) {
             UpdateUI();
