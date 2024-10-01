@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     float jumpforce;
     [SerializeField]
     private Transform cameraTransform;
+    
 
 
     private CharacterController controller;
@@ -45,6 +46,7 @@ public class PlayerManager : MonoBehaviour
         controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         player = GetComponent<Transform>();
+        
     }
 
     void Start()
